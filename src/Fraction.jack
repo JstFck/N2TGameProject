@@ -1,0 +1,52 @@
+class Fraction {
+    field int integerPart, fractionPart;
+
+    constructor Fraction create(int integer, int fraction) {
+        let integerPart = integer;
+        let fractionPart = fraction;
+        return this;
+    }
+
+    method int getIntegetPart() {
+        return integerPart;
+    }
+
+    method int getFractionPart() {
+        return fractionPart;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void add(Fraction addedFraction)
+    {
+        let integerPart = integerPart + addedFraction.getIntegetPart();
+        let fractionPart = fractionPart + addedFraction.getFractionPart();
+
+        if (fractionPart > 10) {
+            let fractionPart = fractionPart - 10;
+            let integerPart = integerPart + 1;
+        }
+
+        do addedFraction.dispose();
+
+        return this;
+    }
+
+    method void Minus(Fraction addedFraction)
+    {
+        let integerPart = integerPart - addedFraction.getIntegetPart();
+        let fractionPart = fractionPart - addedFraction.getFractionPart();
+
+        if (fractionPart < 0) {
+            let fractionPart = fractionPart + 10;
+            let integerPart = integerPart - 1;
+        }
+
+        do addedFraction.dispose();
+
+        return this;
+    }
+}

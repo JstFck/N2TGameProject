@@ -1,0 +1,25 @@
+class Main {
+     function void main()
+     {
+        var int size, i, j;
+        var Map map;
+
+        let map = Map.new(7);
+        let size = map.getSize();
+
+        let i = 0;
+        while (i < size) {
+            let j = 0;
+            while (j < size) {
+                do Output.printInt(map.getItem(j, i));
+                do Output.printChar(" ");
+                let j = j + 1;
+            }
+            do Output.println();
+
+            let i = i + 1;
+        }
+
+        return;
+     }
+}

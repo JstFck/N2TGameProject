@@ -1,0 +1,62 @@
+class Map {
+    field int size;
+    field Array map;
+
+    constructor Map new(int initSize) {
+        var int i, checkValue;
+
+        let size = initSize;
+        let map = Array.new(size * size);
+        let checkValue = size * size - size - 1;
+
+        let i = 0;
+        while (i < (size * size)) {
+            if (i < size) {
+                let map[i] = 1;
+            }
+            else { 
+                if (i > checkValue) {
+                    let map[i] = 1;
+                }
+                else {
+                    if (remainder(i) = 0) {
+                        let map[i] = 1;
+                    }
+                    else {
+                        if (remainder(i) = (size - 1)) {
+                            let map[i] = 1;
+                        }
+                        else {
+                            let map[i] = 0;
+                        }
+                    }
+                }
+            }
+            
+            let i = i + 1;
+        }
+
+        return this;
+    }
+    
+    method int getItem(int x, int y) {
+        return map[y * size + x];
+    }
+
+    method int getSize() {
+        return size;
+    }
+
+    method Array getMap() {
+        return map;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method int remainder(int dividend) {
+        return dividend - ((dividend / size) * size); 
+    }
+}

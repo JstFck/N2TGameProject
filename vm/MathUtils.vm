@@ -7,11 +7,6 @@ function MathUtils.remainder 0
     call Math.multiply 2
     sub
     return
-function MathUtils.pi 0
-    push constant 3
-    push constant 141
-    call Fraction.new 2
-    return
 function MathUtils.factorial 1
     push constant 1
     pop local 0
@@ -33,31 +28,6 @@ label MathUtils_0
 label MathUtils_1
     push local 0
     return
-function MathUtils.pow 1
-    push argument 0
-    call Fraction.integer 1
-    push argument 0
-    call Fraction.fraction 1
-    call Fraction.new 2
-    pop local 0
-label MathUtils_2
-    push argument 1
-    push constant 1
-    gt
-    not
-    if-goto MathUtils_3
-    push local 0
-    push argument 0
-    call Fraction.multiply 2
-    pop local 0
-    push argument 1
-    push constant 1
-    sub
-    pop argument 1
-    goto MathUtils_2
-label MathUtils_3
-    push local 0
-    return
 function MathUtils.sqrt 4
     push argument 0
     call Fraction.integer 1
@@ -69,17 +39,17 @@ function MathUtils.sqrt 4
     push constant 0
     eq
     not
-    if-goto MathUtils_5
+    if-goto MathUtils_3
     push constant 0
     push constant 0
     call Fraction.new 2
     return
-    goto MathUtils_4
-label MathUtils_5
-label MathUtils_4
+    goto MathUtils_2
+label MathUtils_3
+label MathUtils_2
     push argument 0
     pop local 0
-label MathUtils_6
+label MathUtils_4
     push local 0
     call Fraction.integer 1
     push local 1
@@ -94,7 +64,7 @@ label MathUtils_6
     not
     and
     not
-    if-goto MathUtils_7
+    if-goto MathUtils_5
     push local 0
     pop local 1
     push argument 0
@@ -113,9 +83,39 @@ label MathUtils_6
     pop local 2
     push local 2
     pop local 0
+    goto MathUtils_4
+label MathUtils_5
+    push local 1
+    return
+function MathUtils.pow 1
+    push argument 0
+    call Fraction.integer 1
+    push argument 0
+    call Fraction.fraction 1
+    call Fraction.new 2
+    pop local 0
+label MathUtils_6
+    push argument 1
+    push constant 1
+    gt
+    not
+    if-goto MathUtils_7
+    push local 0
+    push argument 0
+    call Fraction.multiply 2
+    pop local 0
+    push argument 1
+    push constant 1
+    sub
+    pop argument 1
     goto MathUtils_6
 label MathUtils_7
-    push local 1
+    push local 0
+    return
+function MathUtils.pi 0
+    push constant 3
+    push constant 141
+    call Fraction.new 2
     return
 function MathUtils.sin 5
     push argument 0
@@ -159,7 +159,3 @@ function MathUtils.sin 5
     push local 0
     sub
     push local 1
-    add
-    push local 2
-    sub
-    return

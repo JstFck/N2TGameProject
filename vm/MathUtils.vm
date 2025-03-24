@@ -159,7 +159,3 @@ function MathUtils.sin 5
     push local 0
     sub
     push local 1
-    add
-    push local 2
-    sub
-    return

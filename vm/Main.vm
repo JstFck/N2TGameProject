@@ -1,38 +1,10 @@
 function Main.main 2
-    push constant 2
-    push constant 500
-    call Fraction.new 2
-    pop local 0
-    push constant 5
-    push constant 700
-    call Fraction.new 2
-    pop local 1
-    push local 0
-    push local 1
-    call Fraction.multiply 2
+    call MathUtils.pi 0
     pop local 0
     push local 0
-    call Fraction.integer 1
-    call Output.printInt 1
-    pop temp 0
-    push constant 1
-    call String.new 1
-    push constant 44
-    call String.appendChar 2
-    call Output.printChar 1
-    pop temp 0
-    push local 0
-    call Fraction.fraction 1
-    call Output.printInt 1
-    pop temp 0
-    call Output.println 0
-    pop temp 0
-    push constant 2
-    push constant 500
+    push constant 12
+    push constant 0
     call Fraction.new 2
-    pop local 0
-    push local 0
-    push local 1
     call Fraction.divide 2
     pop local 0
     push local 0
@@ -46,64 +18,6 @@ function Main.main 2
     call Output.printChar 1
     pop temp 0
     push local 0
-    call Fraction.fraction 1
-    call Output.printInt 1
-    pop temp 0
-    call Output.println 0
-    pop temp 0
-    push constant 16
-    push constant 0
-    call Fraction.new 2
-    call MathUtils.sqrt 1
-    pop local 0
-    push local 0
-    call Fraction.integer 1
-    call Output.printInt 1
-    pop temp 0
-    push constant 1
-    call String.new 1
-    push constant 44
-    call String.appendChar 2
-    call Output.printChar 1
-    pop temp 0
-    push local 0
-    call Fraction.fraction 1
-    call Output.printInt 1
-    pop temp 0
-    call Output.println 0
-    pop temp 0
-    push constant 5
-    push constant 0
-    call Fraction.new 2
-    call MathUtils.sqrt 1
-    pop local 0
-    push local 0
-    call Fraction.integer 1
-    call Output.printInt 1
-    pop temp 0
-    push constant 1
-    call String.new 1
-    push constant 44
-    call String.appendChar 2
-    call Output.printChar 1
-    pop temp 0
-    push local 0
-    call Fraction.fraction 1
-    call Output.printInt 1
-    pop temp 0
-    call Output.println 0
-    pop temp 0
-    push local 1
-    call Fraction.integer 1
-    call Output.printInt 1
-    pop temp 0
-    push constant 1
-    call String.new 1
-    push constant 44
-    call String.appendChar 2
-    call Output.printChar 1
-    pop temp 0
-    push local 1
     call Fraction.fraction 1
     call Output.printInt 1
     pop temp 0

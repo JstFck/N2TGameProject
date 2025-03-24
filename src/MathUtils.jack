@@ -3,10 +3,6 @@ class MathUtils {
         return dividend - ((dividend / divisor) * divisor); 
     }
 
-    function Fraction pi() {
-        return Fraction.new(3, 141);
-    }
-
     function int factorial(int n) {
         var int result;
         let result = 1;
@@ -17,17 +13,6 @@ class MathUtils {
         }
 
         return result;
-    }
-
-    function Fraction pow(Fraction base, int exponent) {
-        var Fraction tempResult;
-
-        let tempResult = Fraction.new(base.integer(), base.fraction());
-        while (exponent > 1) {
-            let tempResult = tempResult.multiply(base);
-            let exponent = exponent - 1;
-        }
-        return tempResult;
     }
 
     function Fraction sqrt(Fraction fraction) {
@@ -49,5 +34,31 @@ class MathUtils {
         }
 
         return oldValue;
+    }
+
+    function Fraction pow(Fraction base, int exponent) {
+        var Fraction tempResult;
+
+        let tempResult = Fraction.new(base.integer(), base.fraction());
+        while (exponent > 1) {
+            let tempResult = tempResult.multiply(base);
+            let exponent = exponent - 1;
+        }
+        return tempResult;
+    }
+
+    function Fraction pi() {
+        return Fraction.new(3, 141);
+    }
+
+    function Fraction sin(Fraction angle) {
+        var Fraction s3, s5, s7, result, temp;
+
+        let temp = MathUtils.pow(angle, 3);
+        let s3 = temp.divide(Fraction.new(MathUtils.factorial(3), 0));
+        let s5 = (temp * angle * angle) / Fraction.new(MathUtils.factorial(5), 0);
+        let s3 = (temp * angle * angle * angle * angle) / Fraction.new(MathUtils.factorial(7), 0);
+
+        return angle - s3 + s5 - s7;
     }
 }

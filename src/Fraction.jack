@@ -79,7 +79,9 @@ class Fraction {
 
         let integerPart = num / denom;
         let remainder = MathUtils.remainder(num, denom);
-        let fractionPart = (remainder * 10) / (denom / 100);
+        let fractionPart = (remainder * 10) / denom;
+        let fractionPart = MathUtils.remainder((fractionPart * 10 + ((remainder * 100) / denom)), 1000);
+        let fractionPart = MathUtils.remainder((fractionPart * 10 + ((remainder * 1000) / denom)), 1000);
     
         do anotherFraction.dispose();
 

@@ -1,17 +1,17 @@
 class Fraction {
     field int integerPart, fractionPart;
 
-    constructor Fraction create(int integer, int fraction) {
+    constructor Fraction new(int integer, int fraction) {
         let integerPart = integer;
         let fractionPart = fraction;
         return this;
     }
 
-    method int getIntegetPart() {
+    method int integer() {
         return integerPart;
     }
 
-    method int getFractionPart() {
+    method int fraction() {
         return fractionPart;
     }
 
@@ -20,32 +20,70 @@ class Fraction {
         return;
     }
 
-    method void add(Fraction addedFraction)
+    method void add(Fraction anotherFraction)
     {
-        let integerPart = integerPart + addedFraction.getIntegetPart();
-        let fractionPart = fractionPart + addedFraction.getFractionPart();
+        let integerPart = integerPart + anotherFraction.integer();
+        let fractionPart = fractionPart + anotherFraction.fraction();
 
-        if (fractionPart > 10) {
-            let fractionPart = fractionPart - 10;
+        if (fractionPart > 1000) {
+            let fractionPart = fractionPart - 1000;
             let integerPart = integerPart + 1;
         }
 
-        do addedFraction.dispose();
+        do anotherFraction.dispose();
 
         return this;
     }
 
-    method void Minus(Fraction addedFraction)
+    method void minus(Fraction anotherFraction)
     {
-        let integerPart = integerPart - addedFraction.getIntegetPart();
-        let fractionPart = fractionPart - addedFraction.getFractionPart();
+        let integerPart = integerPart - anotherFraction.integer();
+        let fractionPart = fractionPart - anotherFraction.fraction();
 
         if (fractionPart < 0) {
-            let fractionPart = fractionPart + 10;
+            let fractionPart = fractionPart + 1000;
             let integerPart = integerPart - 1;
         }
 
-        do addedFraction.dispose();
+        do anotherFraction.dispose();
+
+        return this;
+    }
+
+    method void multiply(Fraction anotherFraction) {
+        var int intPart, fractionPart1, fractionPart2;
+
+        let intPart = integerPart * anotherFraction.integer();
+        let fractionPart1 = integerPart * anotherFraction.fraction();
+        let fractionPart2 = fractionPart * anotherFraction.integer();
+        
+        let integerPart = intPart + (fractionPart1 / 1000) + (fractionPart2 / 1000);
+        let fractionPart = (fractionPart / 10) * (anotherFraction.fraction() / 10) / 10 
+                + MathUtils.remainder(fractionPart1, 1000) + MathUtils.remainder(fractionPart2, 1000);
+
+        while (fractionPart > 1000) {
+            let fractionPart = fractionPart - 1000;
+            let integerPart = integerPart + 1;
+        }
+
+        do anotherFraction.dispose();
+
+        return this;
+    }
+
+    method void divide(Fraction anotherFraction) {
+        var int num, denom, remainder;
+
+        let num = integerPart * 1000 + fractionPart;
+        let denom = anotherFraction.integer() * 1000 + anotherFraction.fraction();
+
+        let integerPart = num / denom;
+        let remainder = MathUtils.remainder(num, denom);
+        let fractionPart = (remainder * 10) / denom;
+        let fractionPart = MathUtils.remainder((fractionPart * 10 + ((remainder * 100) / denom)), 1000);
+        let fractionPart = MathUtils.remainder((fractionPart * 10 + ((remainder * 1000) / denom)), 1000);
+    
+        do anotherFraction.dispose();
 
         return this;
     }

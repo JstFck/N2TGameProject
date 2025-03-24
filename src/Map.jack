@@ -3,7 +3,7 @@ class Map {
     field Array map;
 
     constructor Map new(int initSize) {
-        var int i, checkValue;
+        var int i, checkValue, remainder;
 
         let size = initSize;
         let map = Array.new(size * size);
@@ -11,6 +11,8 @@ class Map {
 
         let i = 0;
         while (i < (size * size)) {
+            let remainder = MathUtils.remainder(i, size);
+
             if (i < size) {
                 let map[i] = 1;
             }
@@ -19,11 +21,11 @@ class Map {
                     let map[i] = 1;
                 }
                 else {
-                    if (remainder(i) = 0) {
+                    if (remainder = 0) {
                         let map[i] = 1;
                     }
                     else {
-                        if (remainder(i) = (size - 1)) {
+                        if (remainder = (size - 1)) {
                             let map[i] = 1;
                         }
                         else {
@@ -54,9 +56,5 @@ class Map {
     method void dispose() {
         do Memory.deAlloc(this);
         return;
-    }
-
-    method int remainder(int dividend) {
-        return dividend - ((dividend / size) * size); 
     }
 }

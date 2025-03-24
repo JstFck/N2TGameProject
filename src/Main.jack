@@ -1,24 +1,40 @@
 class Main {
-     function void main()
-     {
-        var int size, i, j;
-        var Map map;
+     function void main() {
+        var Fraction fraction1, fraction2;
+        
+        let fraction1 = Fraction.new(2, 500);
+        let fraction2 = Fraction.new(5, 700);
+        let fraction1 = fraction1.multiply(fraction2);
 
-        let map = Map.new(7);
-        let size = map.getSize();
+        do Output.printInt(fraction1.integer());
+        do Output.printChar(",");
+        do Output.printInt(fraction1.fraction());
+        do Output.println();
 
-        let i = 0;
-        while (i < size) {
-            let j = 0;
-            while (j < size) {
-                do Output.printInt(map.getItem(j, i));
-                do Output.printChar(" ");
-                let j = j + 1;
-            }
-            do Output.println();
+        let fraction1 = Fraction.new(2, 500);
+        let fraction1 = fraction1.divide(fraction2);
 
-            let i = i + 1;
-        }
+        do Output.printInt(fraction1.integer());
+        do Output.printChar(",");
+        do Output.printInt(fraction1.fraction());
+        do Output.println();
+
+        let fraction1 = MathUtils.sqrt(Fraction.new(16, 0));
+        do Output.printInt(fraction1.integer());
+        do Output.printChar(",");
+        do Output.printInt(fraction1.fraction());
+        do Output.println();
+
+        let fraction1 = MathUtils.sqrt(Fraction.new(5, 0));
+        do Output.printInt(fraction1.integer());
+        do Output.printChar(",");
+        do Output.printInt(fraction1.fraction());
+        do Output.println();
+
+        do Output.printInt(fraction2.integer());
+        do Output.printChar(",");
+        do Output.printInt(fraction2.fraction());
+        do Output.println();
 
         return;
      }

@@ -1,4 +1,4 @@
-function Map.new 2
+function Map.new 3
     push constant 2
     call Memory.alloc 1
     pop pointer 0
@@ -29,6 +29,10 @@ label Map_0
     if-goto Map_1
     push local 0
     push this 0
+    call MathUtils.remainder 2
+    pop local 2
+    push local 0
+    push this 0
     lt
     not
     if-goto Map_3
@@ -57,9 +61,7 @@ label Map_3
     pop that 0
     goto Map_4
 label Map_5
-    push pointer 0
-    push local 0
-    call Map.remainder 2
+    push local 2
     push constant 0
     eq
     not
@@ -74,9 +76,7 @@ label Map_5
     pop that 0
     goto Map_6
 label Map_7
-    push pointer 0
-    push local 0
-    call Map.remainder 2
+    push local 2
     push this 0
     push constant 1
     sub
@@ -143,15 +143,4 @@ function Map.dispose 0
     call Memory.deAlloc 1
     pop temp 0
     push constant 0
-    return
-function Map.remainder 0
-    push argument 0
-    pop pointer 0
-    push argument 1
-    push argument 1
-    push this 0
-    call Math.divide 2
-    push this 0
-    call Math.multiply 2
-    sub
     return

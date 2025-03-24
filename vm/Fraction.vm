@@ -1,4 +1,4 @@
-function Fraction.create 0
+function Fraction.new 0
     push constant 2
     call Memory.alloc 1
     pop pointer 0
@@ -8,12 +8,12 @@ function Fraction.create 0
     pop this 1
     push pointer 0
     return
-function Fraction.getIntegetPart 0
+function Fraction.integer 0
     push argument 0
     pop pointer 0
     push this 0
     return
-function Fraction.getFractionPart 0
+function Fraction.fraction 0
     push argument 0
     pop pointer 0
     push this 1
@@ -31,21 +31,21 @@ function Fraction.add 0
     pop pointer 0
     push this 0
     push argument 1
-    call Fraction.getIntegetPart 1
+    call Fraction.integer 1
     add
     pop this 0
     push this 1
     push argument 1
-    call Fraction.getFractionPart 1
+    call Fraction.fraction 1
     add
     pop this 1
     push this 1
-    push constant 10
+    push constant 1000
     gt
     not
     if-goto Fraction_1
     push this 1
-    push constant 10
+    push constant 1000
     sub
     pop this 1
     push this 0
@@ -60,17 +60,17 @@ label Fraction_0
     pop temp 0
     push pointer 0
     return
-function Fraction.Minus 0
+function Fraction.minus 0
     push argument 0
     pop pointer 0
     push this 0
     push argument 1
-    call Fraction.getIntegetPart 1
+    call Fraction.integer 1
     sub
     pop this 0
     push this 1
     push argument 1
-    call Fraction.getFractionPart 1
+    call Fraction.fraction 1
     sub
     pop this 1
     push this 1
@@ -79,7 +79,7 @@ function Fraction.Minus 0
     not
     if-goto Fraction_3
     push this 1
-    push constant 10
+    push constant 1000
     add
     pop this 1
     push this 0
@@ -89,6 +89,134 @@ function Fraction.Minus 0
     goto Fraction_2
 label Fraction_3
 label Fraction_2
+    push argument 1
+    call Fraction.dispose 1
+    pop temp 0
+    push pointer 0
+    return
+function Fraction.multiply 3
+    push argument 0
+    pop pointer 0
+    push this 0
+    push argument 1
+    call Fraction.integer 1
+    call Math.multiply 2
+    pop local 0
+    push this 0
+    push argument 1
+    call Fraction.fraction 1
+    call Math.multiply 2
+    pop local 1
+    push this 1
+    push argument 1
+    call Fraction.integer 1
+    call Math.multiply 2
+    pop local 2
+    push local 0
+    push local 1
+    push constant 1000
+    call Math.divide 2
+    add
+    push local 2
+    push constant 1000
+    call Math.divide 2
+    add
+    pop this 0
+    push this 1
+    push constant 10
+    call Math.divide 2
+    push argument 1
+    call Fraction.fraction 1
+    push constant 10
+    call Math.divide 2
+    call Math.multiply 2
+    push constant 10
+    call Math.divide 2
+    push local 1
+    push constant 1000
+    call MathUtils.remainder 2
+    add
+    push local 2
+    push constant 1000
+    call MathUtils.remainder 2
+    add
+    pop this 1
+label Fraction_4
+    push this 1
+    push constant 1000
+    gt
+    not
+    if-goto Fraction_5
+    push this 1
+    push constant 1000
+    sub
+    pop this 1
+    push this 0
+    push constant 1
+    add
+    pop this 0
+    goto Fraction_4
+label Fraction_5
+    push argument 1
+    call Fraction.dispose 1
+    pop temp 0
+    push pointer 0
+    return
+function Fraction.divide 3
+    push argument 0
+    pop pointer 0
+    push this 0
+    push constant 1000
+    call Math.multiply 2
+    push this 1
+    add
+    pop local 0
+    push argument 1
+    call Fraction.integer 1
+    push constant 1000
+    call Math.multiply 2
+    push argument 1
+    call Fraction.fraction 1
+    add
+    pop local 1
+    push local 0
+    push local 1
+    call Math.divide 2
+    pop this 0
+    push local 0
+    push local 1
+    call MathUtils.remainder 2
+    pop local 2
+    push local 2
+    push constant 10
+    call Math.multiply 2
+    push local 1
+    call Math.divide 2
+    pop this 1
+    push this 1
+    push constant 10
+    call Math.multiply 2
+    push local 2
+    push constant 100
+    call Math.multiply 2
+    push local 1
+    call Math.divide 2
+    add
+    push constant 1000
+    call MathUtils.remainder 2
+    pop this 1
+    push this 1
+    push constant 10
+    call Math.multiply 2
+    push local 2
+    push constant 1000
+    call Math.multiply 2
+    push local 1
+    call Math.divide 2
+    add
+    push constant 1000
+    call MathUtils.remainder 2
+    pop this 1
     push argument 1
     call Fraction.dispose 1
     pop temp 0

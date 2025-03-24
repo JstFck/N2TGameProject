@@ -1,51 +1,113 @@
-function Main.main 4
-    push constant 7
-    call Map.new 1
-    pop local 3
-    push local 3
-    call Map.getSize 1
+function Main.main 2
+    push constant 2
+    push constant 500
+    call Fraction.new 2
     pop local 0
-    push constant 0
+    push constant 5
+    push constant 700
+    call Fraction.new 2
     pop local 1
-label Main_0
-    push local 1
     push local 0
-    lt
-    not
-    if-goto Main_1
-    push constant 0
-    pop local 2
-label Main_2
-    push local 2
-    push local 0
-    lt
-    not
-    if-goto Main_3
-    push local 3
-    push local 2
     push local 1
-    call Map.getItem 3
+    call Fraction.multiply 2
+    pop local 0
+    push local 0
+    call Fraction.integer 1
     call Output.printInt 1
     pop temp 0
     push constant 1
     call String.new 1
-    push constant 32
+    push constant 44
     call String.appendChar 2
     call Output.printChar 1
     pop temp 0
-    push local 2
+    push local 0
+    call Fraction.fraction 1
+    call Output.printInt 1
+    pop temp 0
+    call Output.println 0
+    pop temp 0
+    push constant 2
+    push constant 500
+    call Fraction.new 2
+    pop local 0
+    push local 0
+    push local 1
+    call Fraction.divide 2
+    pop local 0
+    push local 0
+    call Fraction.integer 1
+    call Output.printInt 1
+    pop temp 0
     push constant 1
-    add
-    pop local 2
-    goto Main_2
-label Main_3
+    call String.new 1
+    push constant 44
+    call String.appendChar 2
+    call Output.printChar 1
+    pop temp 0
+    push local 0
+    call Fraction.fraction 1
+    call Output.printInt 1
+    pop temp 0
+    call Output.println 0
+    pop temp 0
+    push constant 16
+    push constant 0
+    call Fraction.new 2
+    call MathUtils.sqrt 1
+    pop local 0
+    push local 0
+    call Fraction.integer 1
+    call Output.printInt 1
+    pop temp 0
+    push constant 1
+    call String.new 1
+    push constant 44
+    call String.appendChar 2
+    call Output.printChar 1
+    pop temp 0
+    push local 0
+    call Fraction.fraction 1
+    call Output.printInt 1
+    pop temp 0
+    call Output.println 0
+    pop temp 0
+    push constant 5
+    push constant 0
+    call Fraction.new 2
+    call MathUtils.sqrt 1
+    pop local 0
+    push local 0
+    call Fraction.integer 1
+    call Output.printInt 1
+    pop temp 0
+    push constant 1
+    call String.new 1
+    push constant 44
+    call String.appendChar 2
+    call Output.printChar 1
+    pop temp 0
+    push local 0
+    call Fraction.fraction 1
+    call Output.printInt 1
+    pop temp 0
     call Output.println 0
     pop temp 0
     push local 1
+    call Fraction.integer 1
+    call Output.printInt 1
+    pop temp 0
     push constant 1
-    add
-    pop local 1
-    goto Main_0
-label Main_1
+    call String.new 1
+    push constant 44
+    call String.appendChar 2
+    call Output.printChar 1
+    pop temp 0
+    push local 1
+    call Fraction.fraction 1
+    call Output.printInt 1
+    pop temp 0
+    call Output.println 0
+    pop temp 0
     push constant 0
     return

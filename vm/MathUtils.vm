@@ -1,0 +1,89 @@
+function MathUtils.remainder 0
+    push argument 0
+    push argument 0
+    push argument 1
+    call Math.divide 2
+    push argument 1
+    call Math.multiply 2
+    sub
+    return
+function MathUtils.factorial 1
+    push constant 1
+    pop local 0
+label MathUtils_0
+    push argument 0
+    push constant 1
+    gt
+    not
+    if-goto MathUtils_1
+    push local 0
+    push argument 0
+    call Math.multiply 2
+    pop local 0
+    push argument 0
+    push constant 1
+    sub
+    pop argument 0
+    goto MathUtils_0
+label MathUtils_1
+    push local 0
+    return
+function MathUtils.sqrt 4
+    push argument 0
+    call Fraction.integer 1
+    push constant 0
+    eq
+    push argument 0
+    call Fraction.fraction 1
+    and
+    push constant 0
+    eq
+    not
+    if-goto MathUtils_3
+    push constant 0
+    push constant 0
+    call Fraction.new 2
+    return
+    goto MathUtils_2
+label MathUtils_3
+label MathUtils_2
+    push argument 0
+    pop local 0
+label MathUtils_4
+    push local 0
+    call Fraction.integer 1
+    push local 1
+    call Fraction.integer 1
+    eq
+    not
+    push local 0
+    call Fraction.fraction 1
+    push local 1
+    call Fraction.fraction 1
+    eq
+    not
+    and
+    not
+    if-goto MathUtils_5
+    push local 0
+    pop local 1
+    push argument 0
+    push local 0
+    call Fraction.divide 2
+    pop local 2
+    push local 0
+    push local 2
+    call Fraction.add 2
+    pop local 3
+    push local 3
+    push constant 2
+    push constant 0
+    call Fraction.new 2
+    call Fraction.divide 2
+    pop local 2
+    push local 2
+    pop local 0
+    goto MathUtils_4
+label MathUtils_5
+    push local 1
+    return

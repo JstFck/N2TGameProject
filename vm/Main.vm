@@ -1,27 +1,3 @@
-function Main.main 2
-    call MathUtils.pi 0
-    pop local 0
-    push local 0
-    push constant 12
-    push constant 0
-    call Fraction.new 2
-    call Fraction.divide 2
-    pop local 0
-    push local 0
-    call Fraction.integer 1
-    call Output.printInt 1
-    pop temp 0
-    push constant 1
-    call String.new 1
-    push constant 44
-    call String.appendChar 2
-    call Output.printChar 1
-    pop temp 0
-    push local 0
-    call Fraction.fraction 1
-    call Output.printInt 1
-    pop temp 0
-    call Output.println 0
-    pop temp 0
+function Main.main 0
     push constant 0
     return

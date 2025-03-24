@@ -117,3 +117,49 @@ label MathUtils_6
 label MathUtils_7
     push local 1
     return
+function MathUtils.sin 5
+    push argument 0
+    push constant 3
+    call MathUtils.pow 2
+    pop local 4
+    push local 4
+    push constant 3
+    call MathUtils.factorial 1
+    push constant 0
+    call Fraction.new 2
+    call Fraction.divide 2
+    pop local 0
+    push local 4
+    push argument 0
+    call Math.multiply 2
+    push argument 0
+    call Math.multiply 2
+    push constant 5
+    call MathUtils.factorial 1
+    push constant 0
+    call Fraction.new 2
+    call Math.divide 2
+    pop local 1
+    push local 4
+    push argument 0
+    call Math.multiply 2
+    push argument 0
+    call Math.multiply 2
+    push argument 0
+    call Math.multiply 2
+    push argument 0
+    call Math.multiply 2
+    push constant 7
+    call MathUtils.factorial 1
+    push constant 0
+    call Fraction.new 2
+    call Math.divide 2
+    pop local 0
+    push argument 0
+    push local 0
+    sub
+    push local 1
+    add
+    push local 2
+    sub
+    return

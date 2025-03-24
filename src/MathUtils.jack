@@ -50,4 +50,15 @@ class MathUtils {
 
         return oldValue;
     }
+
+    function Fraction sin(Fraction angle) {
+        var Fraction s3, s5, s7, result, temp;
+
+        let temp = MathUtils.pow(angle, 3);
+        let s3 = temp.divide(Fraction.new(MathUtils.factorial(3), 0));
+        let s5 = (temp * angle * angle) / Fraction.new(MathUtils.factorial(5), 0);
+        let s3 = (temp * angle * angle * angle * angle) / Fraction.new(MathUtils.factorial(7), 0);
+
+        return angle - s3 + s5 - s7;
+    }
 }

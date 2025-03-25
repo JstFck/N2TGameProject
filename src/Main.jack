@@ -1,5 +1,15 @@
 class Main {
     function void main() {
+        var Fraction fraction;
+        
+        let fraction = Fraction.new(2, 0);
+        let fraction = MathUtils.sqrt(fraction);
+
+        do Output.printInt(fraction.integer());
+        do Output.printChar(",");
+        do Output.printInt(fraction.fraction());
+        do Output.println();
+
         return;
     }
 }

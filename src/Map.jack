@@ -1,4 +1,8 @@
 class Map {
+
+    // creation array with length N * N, which contains 1 as wall and 0 as space
+    // class have only methods to take (x, y) item, array length and map
+
     field int size;
     field Array map;
 

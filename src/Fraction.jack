@@ -1,4 +1,8 @@
 class Fraction {
+
+    // Creating a fraction with some integer and fraction parts
+    // class contains only methods, what means that in progres we will change existing fraction
+
     field int integerPart, fractionPart;
 
     constructor Fraction new(int integer, int fraction) {
@@ -37,12 +41,29 @@ class Fraction {
 
     method void minus(Fraction anotherFraction)
     {
-        let integerPart = integerPart - anotherFraction.integer();
-        let fractionPart = fractionPart - anotherFraction.fraction();
+        if (integerPart > anotherFraction.integer() | (integerPart = 0 & anotherFraction.integer() = 0)) {
+            let integerPart = integerPart - anotherFraction.integer();
+            let fractionPart = fractionPart - anotherFraction.fraction();
 
-        if (fractionPart < 0) {
-            let fractionPart = fractionPart + 1000;
-            let integerPart = integerPart - 1;
+            if (fractionPart < 0) {
+                let integerPart = integerPart - 1;
+                let fractionPart = fractionPart + 1000;
+            }
+        }
+        else {
+            let integerPart = anotherFraction.integer() - integerPart;
+            let fractionPart = anotherFraction.fraction() - fractionPart;
+
+            if (fractionPart < 0) {
+                let integerPart = integerPart - 1;
+                let fractionPart = fractionPart + 1000;
+            }
+
+            if (integerPart = 0) {
+                let fractionPart = -fractionPart;
+            }
+
+            let integerPart = -integerPart;
         }
 
         do anotherFraction.dispose();
@@ -82,6 +103,35 @@ class Fraction {
         let fractionPart = (remainder * 10) / (denom / 100);
             
         do anotherFraction.dispose();
+
+        return this;
+    }
+
+    method void integerMultiply(int multiplyer) {
+        let integerPart = integerPart * multiplyer;
+
+        return this;
+    }
+
+    method void integerDivide(int divider) {
+        var int quotient, fractionResult, remainder;
+
+        let quotient = integerPart / divider;
+        let remainder = MathUtils.remainder(integerPart, divider);
+        let integerPart = quotient;
+
+        let remainder = ((remainder * 10) + (fractionPart / 100));
+        let quotient = remainder / divider * 10;
+        let fractionPart = MathUtils.remainder(fractionPart, 100);
+        let remainder = MathUtils.remainder(remainder, divider);
+
+        let remainder = ((remainder * 10) + (fractionPart / 10));
+        let quotient = (remainder / divider + quotient) * 10;
+        let fractionPart = MathUtils.remainder(fractionPart, 10);
+        let remainder = MathUtils.remainder(remainder, divider);
+
+        let remainder = ((remainder * 10) + fractionPart);
+        let fractionPart = (remainder / divider + quotient);
 
         return this;
     }

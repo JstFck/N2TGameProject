@@ -1,15 +1,5 @@
 class Main {
     function void main() {
-        var Fraction fraction1, fraction2;
-
-        let fraction1 = MathUtils.pi();
-        let fraction1 = fraction1.divide(Fraction.new(12, 0));
-
-        do Output.printInt(fraction1.integer());
-        do Output.printChar(",");
-        do Output.printInt(fraction1.fraction());
-        do Output.println();
-
         return;
     }
 }

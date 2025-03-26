@@ -1,14 +1,24 @@
 class Main {
     function void main() {
-        var Fraction fraction;
-        
-        let fraction = Fraction.new(2, 0);
-        let fraction = MathUtils.sqrt(fraction);
+        var Map map;
+        var Raycaster raycaster;
+        var Array rays;
+        var Render render;
+        var int x;
 
-        do Output.printInt(fraction.integer());
-        do Output.printChar(",");
-        do Output.printInt(fraction.fraction());
-        do Output.println();
+        let map = Map.new(9);
+        let raycaster = Raycaster.new(map, 4, 4, Fraction.new(0, 0));
+        let render = Render.new(raycaster);
+        let rays = raycaster.castRays();
+
+        let x = 0;
+        while (x < 512) {
+            do Output.printInt(rays[x]);
+            do Output.printChar(" ");
+            let x = x + 1;
+        }
+
+        // do render.render();
 
         return;
     }

@@ -1,26 +1,47 @@
-function Main.main 1
-    push constant 2
+function Main.main 5
+    push constant 9
+    call Map.new 1
+    pop local 0
+    push local 0
+    push constant 4
+    push constant 4
+    push constant 0
     push constant 0
     call Fraction.new 2
-    pop local 0
-    push local 0
-    call MathUtils.sqrt 1
-    pop local 0
-    push local 0
-    call Fraction.integer 1
+    call Raycaster.new 4
+    pop local 1
+    push local 1
+    call Render.new 1
+    pop local 3
+    push local 1
+    call Raycaster.castRays 1
+    pop local 2
+    push constant 0
+    pop local 4
+label Main_0
+    push local 4
+    push constant 512
+    lt
+    not
+    if-goto Main_1
+    push local 4
+    push local 2
+    add
+    pop pointer 1
+    push that 0
     call Output.printInt 1
     pop temp 0
     push constant 1
     call String.new 1
-    push constant 44
+    push constant 32
     call String.appendChar 2
     call Output.printChar 1
     pop temp 0
-    push local 0
-    call Fraction.fraction 1
-    call Output.printInt 1
-    pop temp 0
-    call Output.println 0
-    pop temp 0
+    push local 4
+    push constant 1
+    add
+    pop local 4
+    goto Main_0
+label Main_1
     push constant 0
     return

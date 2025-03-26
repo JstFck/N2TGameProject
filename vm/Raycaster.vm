@@ -1,10 +1,248 @@
 function Raycaster.new 0
-    push constant 1
+    push constant 6
     call Memory.alloc 1
     pop pointer 0
     push argument 0
     pop this 0
+    push argument 1
+    pop this 1
+    push argument 2
+    pop this 2
+    push argument 3
+    pop this 5
+    push constant 256
+    pop this 3
+    push constant 512
+    pop this 4
     push pointer 0
+    return
+function Raycaster.castRays 19
+    push argument 0
+    pop pointer 0
+    push this 4
+    call Array.new 1
+    pop local 0
+    push this 4
+    push constant 2
+    call Math.divide 2
+    pop local 12
+    push constant 0
+    pop local 13
+label Raycaster_0
+    push local 13
+    push this 4
+    lt
+    not
+    if-goto Raycaster_1
+    push this 5
+    call Fraction.integer 1
+    push this 5
+    call Fraction.fraction 1
+    call Fraction.new 2
+    pop local 3
+    push local 3
+    push local 13
+    push local 12
+    sub
+    push constant 10
+    call Math.divide 2
+    push constant 0
+    call Fraction.new 2
+    call Fraction.add 2
+    pop local 4
+    push local 4
+    call MathUtils.cos 1
+    pop local 5
+    push local 4
+    call MathUtils.sin 1
+    pop local 6
+    push this 1
+    pop local 14
+    push this 2
+    pop local 15
+    push constant 1
+    push constant 0
+    call Fraction.new 2
+    pop local 7
+    push local 7
+    push local 5
+    call Fraction.abs 1
+    call Fraction.divide 2
+    pop local 7
+    push constant 1
+    push constant 0
+    call Fraction.new 2
+    pop local 8
+    push local 8
+    push local 6
+    call Fraction.abs 1
+    call Fraction.divide 2
+    pop local 8
+    push local 5
+    call Fraction.integer 1
+    push constant 0
+    lt
+    push local 5
+    call Fraction.fraction 1
+    push constant 0
+    lt
+    or
+    not
+    if-goto Raycaster_3
+    push constant 1
+    neg
+    pop local 16
+    push this 1
+    push local 14
+    sub
+    push constant 0
+    call Fraction.new 2
+    pop local 9
+    push local 9
+    push local 7
+    call Fraction.multiply 2
+    pop local 9
+    goto Raycaster_2
+label Raycaster_3
+    push constant 1
+    pop local 16
+    push local 14
+    push constant 1
+    add
+    push this 1
+    sub
+    push constant 0
+    call Fraction.new 2
+    pop local 9
+    push local 9
+    push local 7
+    call Fraction.multiply 2
+    pop local 9
+label Raycaster_2
+    push local 6
+    call Fraction.integer 1
+    push constant 0
+    lt
+    push local 6
+    call Fraction.fraction 1
+    push constant 0
+    lt
+    or
+    not
+    if-goto Raycaster_5
+    push constant 1
+    neg
+    pop local 17
+    push this 2
+    push local 15
+    sub
+    push constant 0
+    call Fraction.new 2
+    pop local 10
+    push local 10
+    push local 8
+    call Fraction.multiply 2
+    pop local 10
+    goto Raycaster_4
+label Raycaster_5
+    push constant 1
+    pop local 16
+    push local 15
+    push constant 1
+    add
+    push this 2
+    sub
+    push constant 0
+    call Fraction.new 2
+    pop local 10
+    push local 10
+    push local 8
+    call Fraction.multiply 2
+    pop local 10
+label Raycaster_4
+label Raycaster_6
+    push this 0
+    push local 14
+    push local 15
+    call Map.getItem 3
+    push constant 0
+    eq
+    not
+    if-goto Raycaster_7
+    push local 9
+    push local 10
+    call Fraction.isLess 2
+    not
+    if-goto Raycaster_9
+    push local 9
+    push local 7
+    call Fraction.add 2
+    pop local 9
+    push local 14
+    push local 16
+    add
+    pop local 14
+    push constant 0
+    pop local 18
+    goto Raycaster_8
+label Raycaster_9
+    push local 10
+    push local 8
+    call Fraction.add 2
+    pop local 10
+    push local 15
+    push local 17
+    add
+    pop local 15
+    push constant 1
+    pop local 18
+label Raycaster_8
+    goto Raycaster_6
+label Raycaster_7
+    push local 18
+    push constant 0
+    eq
+    not
+    if-goto Raycaster_11
+    push local 14
+    push this 1
+    sub
+    push constant 0
+    call Fraction.new 2
+    pop local 11
+    push local 11
+    push local 5
+    call Fraction.divide 2
+    pop local 11
+    goto Raycaster_10
+label Raycaster_11
+    push local 15
+    push this 1
+    sub
+    push constant 0
+    call Fraction.new 2
+    pop local 11
+    push local 11
+    push local 6
+    call Fraction.divide 2
+    pop local 11
+label Raycaster_10
+    push local 13
+    push local 0
+    add
+    push local 11
+    call Fraction.integer 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push local 13
+    push constant 1
+    add
+    pop local 13
+    goto Raycaster_0
+label Raycaster_1
+    push local 0
     return
 function Raycaster.dispose 0
     push argument 0

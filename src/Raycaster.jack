@@ -1,9 +1,95 @@
 class Raycaster {
-    field Map map;
+    
+    // Raycaster is casting rays to walls and return array of values
 
-    constructor Raycaster new(Map initMap) {
+    field Map map;
+    field int playerX, playerY, screenHeight, screenWidth;
+    field Fraction angle;
+
+    constructor Raycaster new(Map initMap, int x, int y, Fraction playerAngle) {
         let map = initMap;
+        let playerX = x;
+        let playerY = y;
+        let angle = playerAngle;
+        let screenHeight = 256;
+        let screenWidth = 512;
         return this;
+    }
+
+    method Array castRays() {
+        var Array distances;
+        var Fraction dx, dy;
+        var Fraction copyAngle, rayAngle, rayDirX, rayDirY;
+        var Fraction rayDistX, rayDistY, sideDistX, sideDistY, distance;
+        var int screenMiddle, x, rayPosX, rayPosY, stepX, stepY, side;
+
+        let distances = Array.new(screenWidth);
+        let screenMiddle = screenWidth / 2;
+        let x = 0;
+
+        while (x < screenWidth) {
+            let copyAngle = Fraction.new(angle.integer(), angle.fraction());
+            let rayAngle = copyAngle.add(Fraction.new((x - screenMiddle) / 10, 0));
+
+            let rayDirX = MathUtils.cos(rayAngle);
+            let rayDirY = MathUtils.sin(rayAngle);
+
+            let rayPosX = playerX;
+            let rayPosY = playerY;
+            let rayDistX = Fraction.new(1, 0);
+            let rayDistX = rayDistX.divide(rayDirX.abs());
+            let rayDistY = Fraction.new(1, 0);
+            let rayDistY = rayDistY.divide(rayDirY.abs());
+
+            if ((rayDirX.integer() < 0) | (rayDirX.fraction() < 0)) {
+                let stepX = -1;
+                let sideDistX = Fraction.new(playerX - rayPosX, 0);
+                let sideDistX = sideDistX.multiply(rayDistX);
+            }
+            else {
+                let stepX = 1;
+                let sideDistX = Fraction.new(rayPosX + 1 - playerX, 0);
+                let sideDistX = sideDistX.multiply(rayDistX);
+            }
+
+            if ((rayDirY.integer() < 0) | (rayDirY.fraction() < 0)) {
+                let stepY = -1;
+                let sideDistY = Fraction.new(playerY - rayPosY, 0);
+                let sideDistY = sideDistY.multiply(rayDistY);
+            }
+            else {
+                let stepX = 1;
+                let sideDistY = Fraction.new(rayPosY + 1 - playerY, 0);
+                let sideDistY = sideDistY.multiply(rayDistY);
+            }
+
+            while (map.getItem(rayPosX, rayPosY) = 0) {
+                if (sideDistX.isLess(sideDistY)) { 
+                    let sideDistX = sideDistX.add(rayDistX);
+                    let rayPosX = rayPosX + stepX;
+                    let side = 0;
+                }
+                else {
+                    let sideDistY = sideDistY.add(rayDistY);
+                    let rayPosY = rayPosY + stepY;
+                    let side = 1;
+                }
+            }
+
+            if (side = 0) {
+                let distance = Fraction.new(rayPosX - playerX, 0);
+                let distance = distance.divide(rayDirX);
+            }
+            else {
+                let distance = Fraction.new(rayPosY - playerX, 0);
+                let distance = distance.divide(rayDirY);
+            }
+
+            let distances[x] = distance.integer();
+            let x = x + 1;
+        }
+
+        return distances;
     }
 
     method void dispose() {

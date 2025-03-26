@@ -1,0 +1,42 @@
+class Render {
+
+    // Render to draw screen picture
+
+    field Raycaster raycaster;
+    field int screenHeight, screenWidth;
+
+    constructor Render new(Raycaster newRaycaster) {
+        let screenHeight = 256;
+        let screenWidth = 512;
+        let raycaster = newRaycaster;
+
+        return this;
+    }
+
+    method void render() {
+        var Array rays;
+        var int x, height, distance, top, bottom;
+        
+        let rays = raycaster.castRays();
+        let x = 0;
+
+        do Screen.clearScreen();
+
+        while (x < 512) {
+            let distance = rays[x];
+            let height = 256 / distance;
+            if (height > 256) {
+                let height = 256;
+            }
+
+            let top = (256 - height) / 2;
+            let bottom = top + height;
+
+            do Screen.drawLine(x, top, x, bottom);
+
+            let x = x + 1;
+        }
+
+        return;
+    }
+}

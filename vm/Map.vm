@@ -34,6 +34,20 @@ label Map_0
     push local 0
     push this 0
     lt
+    push local 0
+    push local 1
+    gt
+    or
+    push local 2
+    push constant 0
+    eq
+    or
+    push local 2
+    push this 0
+    push constant 1
+    sub
+    eq
+    or
     not
     if-goto Map_3
     push local 0
@@ -47,53 +61,6 @@ label Map_0
     goto Map_2
 label Map_3
     push local 0
-    push local 1
-    gt
-    not
-    if-goto Map_5
-    push local 0
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    goto Map_4
-label Map_5
-    push local 2
-    push constant 0
-    eq
-    not
-    if-goto Map_7
-    push local 0
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    goto Map_6
-label Map_7
-    push local 2
-    push this 0
-    push constant 1
-    sub
-    eq
-    not
-    if-goto Map_9
-    push local 0
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    goto Map_8
-label Map_9
-    push local 0
     push this 1
     add
     push constant 0
@@ -101,9 +68,6 @@ label Map_9
     pop pointer 1
     push temp 0
     pop that 0
-label Map_8
-label Map_6
-label Map_4
 label Map_2
     push local 0
     push constant 1

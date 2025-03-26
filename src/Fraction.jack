@@ -11,6 +11,44 @@ class Fraction {
         return this;
     }
 
+    method boolean isGreater(Fraction anotherFraction) {
+        if ((integerPart > anotherFraction.integer()) | 
+            ((integerPart = anotherFraction.integer()) & (fractionPart > anotherFraction.fraction()))) {
+            return true;
+        }
+
+        return false;
+    }
+
+    method boolean isLess(Fraction anotherFraction) {
+        if ((integerPart < anotherFraction.integer()) | 
+            ((integerPart = anotherFraction.integer()) & (fractionPart < anotherFraction.fraction()))) {
+            return true;
+        }
+
+        return false;
+    }
+
+    method Fraction abs() {
+        var int integer, fraction;
+
+        if ((integerPart > 0) | (integerPart = 0)) {
+            let integer = integerPart;
+        }
+        else {
+            let integer = -integerPart;
+        }
+
+        if ((fractionPart > 0) | (fractionPart = 0)) {
+            let fraction = fractionPart;
+        }
+        else {
+            let fraction = -fractionPart;
+        }
+
+        return Fraction.new(integer, fraction);
+    }
+
     method int integer() {
         return integerPart;
     }
@@ -24,8 +62,25 @@ class Fraction {
         return;
     }
 
-    method void add(Fraction anotherFraction)
-    {
+    method void print() {
+        do Output.printInt(integerPart);
+        do Output.printChar(" ");
+        do Output.printInt(fractionPart);
+        do Output.println();
+    
+        return;
+    }
+
+    method void add(Fraction anotherFraction) {
+        var Fraction temp;
+        
+        if (integerPart < 0) {
+            let temp = Fraction.new(-integerPart, fractionPart);
+            let temp = temp.minus(anotherFraction);
+            let temp = Fraction.new(-temp.integer(), temp.fraction());
+            return temp;
+        }
+        
         let integerPart = integerPart + anotherFraction.integer();
         let fractionPart = fractionPart + anotherFraction.fraction();
 
@@ -38,6 +93,7 @@ class Fraction {
 
         return this;
     }
+
 
     method void minus(Fraction anotherFraction)
     {
@@ -109,6 +165,12 @@ class Fraction {
 
     method void integerMultiply(int multiplyer) {
         let integerPart = integerPart * multiplyer;
+        let fractionPart = fractionPart * multiplyer;
+
+        while (fractionPart > 1000) {
+            let fractionPart = fractionPart - 1000;
+            let integerPart = integerPart + 1;
+        }
 
         return this;
     }

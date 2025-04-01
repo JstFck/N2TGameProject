@@ -3,50 +3,77 @@ class Map {
     // creation array with length N * N, which contains 1 as wall and 0 as space
     // class have only methods to take (x, y) item, array length and map
 
-    field int size;
+    field int size, tileSize;
     field Array map;
 
-    constructor Map new(int initSize) {
+    constructor Map new(int initSize) { // код из рейкастинга)
         var int i, checkValue, remainder;
 
         let size = initSize;
         let map = Array.new(size * size);
         let checkValue = size * size - size - 1;
+        let tileSize = 16;
 
         let i = 0;
         while (i < (size * size)) {
             let remainder = MathUtils.remainder(i, size);
 
-            if (i < size) {
+            if ((i < size) | (i > checkValue) | (remainder = 0) | (remainder = (size -  1))) {
                 let map[i] = 1;
             }
-            else { 
-                if (i > checkValue) {
-                    let map[i] = 1;
-                }
-                else {
-                    if (remainder = 0) {
-                        let map[i] = 1;
-                    }
-                    else {
-                        if (remainder = (size - 1)) {
-                            let map[i] = 1;
-                        }
-                        else {
-                            let map[i] = 0;
-                        }
-                    }
-                }
+            else {
+                let map[i] = 0;
+            }
+            
+            let i = i + 1;
+        }    
+
+        return this;
+    }
+
+    method void draw() { // отрисовка карты работает нормально
+        var int i, x1, y1;
+
+        let i = 0;
+        while (i < (size * size)) {
+
+            if (map[i] = 0) {
+                do Screen.setColor(false);
+            }
+            else {
+                do Screen.setColor(true);
+            }
+            
+            // Рассчитываем координаты верхнего левого угла прямоугольника
+            let x1 = (i / size) * tileSize;  // x = (i // size) * tile_width
+            let y1 = MathUtils.remainder(i, size) * tileSize;  // y = (i % size) * tile_height
+            
+            // Рисуем квадрат 16x16 (проверяем, чтобы не выйти за границы экрана)
+            if ((x1 < 256) & (y1 < 256)) {
+                do Screen.drawRectangle(x1, y1, x1 + tileSize - 1, y1 + tileSize - 1);  // x2 = x1+15, y2 = y1+15 (16x16)
             }
             
             let i = i + 1;
         }
-
-        return this;
+        return;
     }
     
     method int getItem(int x, int y) {
         return map[y * size + x];
+    }
+
+    method int getItemByScreenCoords(int x, int y) { // а вот оно работает непонятно как
+        var int mapX, mapY;
+        var int value;
+
+        if ((x < 0) | (y < 0) | (x > 255) | (y > 255)) {
+            return 1;  // cчитаем всё за пределами экрана стеной
+        }
+        let mapX = x / tileSize; // тут вылезают рандомные числа откуда-то ya ne ponimayu
+        let mapY = y / tileSize;
+        let value = getItem(mapX, mapY);
+        
+        return value;
     }
 
     method int getSize() {

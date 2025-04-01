@@ -1,0 +1,65 @@
+class Pacman {
+    field Point location;
+    field Point currentMovementOffset;
+    field int size, step;
+    field Map map;
+
+    constructor Pacman new(Point loc, Map map) {
+        let location = loc;
+        let currentMovementOffset = Point.new(0, 0);
+        let size = 8;
+        let step = 8;
+        return this;
+    }
+
+    method void draw() {
+        do Screen.setColor(true);
+        do Screen.drawCircle(location.X(), location.Y(), size);
+        return;
+    }
+
+    method void move() {
+        var int newX, newY;
+        // сначала стираем рисунок на старой позиции
+        do Screen.setColor(false);
+        do Screen.drawCircle(location.X(), location.Y(), size);
+        
+        let newX = location.X() + currentMovementOffset.X();
+        let newY = location.Y() + currentMovementOffset.Y();
+        // проверяем что после сдвига мы не вылетим за пределы (+step чтобы гарантированно) (но думаю это не очень нужно, там же стены по краям)
+        if (~(newX - step < 16) & 
+            ~(newY - step < 16) &
+            (newX + step < 248) & 
+            (newY + step < 24)) {
+            if (map.getItemByScreenCoords(newX, newY) = 0) { //короче эта штука постоянно возвращает нули хотя если стены должно быть 1
+                do location.dispose();  // удаляем старую точку
+                let location = Point.new(newX, newY);   // и меняем местоположение
+                }                                    
+        }
+        return;
+    }
+
+    method void changeMove(int keyCode) {
+        if (keyCode = 130) {  // влево
+            do currentMovementOffset.dispose();
+            let currentMovementOffset = Point.new(-step, 0);
+            do move();
+        }
+        if (keyCode = 131) {  // вверх
+            do currentMovementOffset.dispose();
+            let currentMovementOffset = Point.new(0, -step);
+            do move();
+        }
+        if (keyCode = 132) {  // вправо
+            do currentMovementOffset.dispose();
+            let currentMovementOffset = Point.new(step, 0);
+            do move();
+        }
+        if (keyCode = 133) {  // вниз
+            do currentMovementOffset.dispose();
+            let currentMovementOffset = Point.new(0, step);
+            do move();
+        }
+        return;
+    }
+}

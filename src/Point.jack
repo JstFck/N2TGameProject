@@ -1,0 +1,23 @@
+class Point {
+    // точка на экране, соответственно координаты 0-511, 0-255
+    field int xCoord, yCoord;
+
+    constructor Point new(int x, int y) {
+        let xCoord = x;
+        let yCoord = y;
+        return this;
+    }
+
+    method int X() {
+        return xCoord;
+    }
+
+    method int Y() {
+        return yCoord;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+    return;
+    }
+}

@@ -23,28 +23,7 @@ class MathUtils {
         return result;
     }
 
-    function Fraction sqrt(Fraction fraction) {
-        var Fraction value, oldValue;
-        var Fraction dividedValue, addedValue;
-
-        if (fraction.integer() = 0 & fraction.fraction() = 0) {
-            return Fraction.new(0, 0);
-        }
-
-        let value = fraction;
-
-        while (~(value.integer() = oldValue.integer()) & ~(value.fraction() = oldValue.fraction())) {
-            let oldValue = value;
-            let dividedValue = fraction.divide(value);
-            let addedValue = value.add(dividedValue);
-            let dividedValue = addedValue.divide(Fraction.new(2, 0));
-            let value = dividedValue;
-        }
-
-        return oldValue;
-    }
-
-function Fraction pow(Fraction base, int exponent) {
+    function Fraction pow(Fraction base, int exponent) {
         var Fraction tempResult;
 
         if (exponent = 0) {

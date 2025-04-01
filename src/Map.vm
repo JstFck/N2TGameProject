@@ -1,0 +1,146 @@
+function Map.new 3
+    push constant 2
+    call Memory.alloc 1
+    pop pointer 0
+    push argument 0
+    pop this 0
+    push this 0
+    push this 0
+    call Math.multiply 2
+    call Array.new 1
+    pop this 1
+    push this 0
+    push this 0
+    call Math.multiply 2
+    push this 0
+    sub
+    push constant 1
+    sub
+    pop local 1
+    push constant 0
+    pop local 0
+label Map_0
+    push local 0
+    push this 0
+    push this 0
+    call Math.multiply 2
+    lt
+    not
+    if-goto Map_1
+    push local 0
+    push this 0
+    call MathUtils.remainder 2
+    pop local 2
+    push local 0
+    push this 0
+    lt
+    not
+    if-goto Map_3
+    push local 0
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    goto Map_2
+label Map_3
+    push local 0
+    push local 1
+    gt
+    not
+    if-goto Map_5
+    push local 0
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    goto Map_4
+label Map_5
+    push local 2
+    push constant 0
+    eq
+    not
+    if-goto Map_7
+    push local 0
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    goto Map_6
+label Map_7
+    push local 2
+    push this 0
+    push constant 1
+    sub
+    eq
+    not
+    if-goto Map_9
+    push local 0
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    goto Map_8
+label Map_9
+    push local 0
+    push this 1
+    add
+    push constant 0
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+label Map_8
+label Map_6
+label Map_4
+label Map_2
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Map_0
+label Map_1
+    push pointer 0
+    return
+function Map.getItem 0
+    push argument 0
+    pop pointer 0
+    push argument 2
+    push this 0
+    call Math.multiply 2
+    push argument 1
+    add
+    push this 1
+    add
+    pop pointer 1
+    push that 0
+    return
+function Map.getSize 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+function Map.getMap 0
+    push argument 0
+    pop pointer 0
+    push this 1
+    return
+function Map.dispose 0
+    push argument 0
+    pop pointer 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
+    return

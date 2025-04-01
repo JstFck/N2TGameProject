@@ -1,25 +1,22 @@
 class Main {
-    function void main() {
+    function void main(){
+        var Pacman pacman;
+        var Point loc1, loc2, loc3;
+        var char key;
         var Map map;
-        var Raycaster raycaster;
-        var Array rays;
-        var Render render;
-        var int x;
+        
+        let map = Map.new(16); // квадрат 12 на 12
+        do map.draw();
 
-        let map = Map.new(9);
-        let raycaster = Raycaster.new(map, 4, 4, Fraction.new(0, 0));
-        let render = Render.new(raycaster);
-        let rays = raycaster.castRays();
+        let pacman = Pacman.new(Point.new(24, 24), map); // пока ставлю в верхний левый угол
 
-        let x = 0;
-        while (x < 512) {
-            do Output.printInt(rays[x]);
-            do Output.printChar(" ");
-            let x = x + 1;
+        do pacman.draw();
+        while (true) {
+            let key = Keyboard.keyPressed();
+            do pacman.changeMove(key);
+            do pacman.draw();
+            do Sys.wait(20);
         }
-
-        // do render.render();
-
-        return;
+    return;
     }
 }

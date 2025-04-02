@@ -1,5 +1,5 @@
-function Pacman.new 0
-    push constant 5
+function Enemy.new 0
+    push constant 6
     call Memory.alloc 1
     pop pointer 0
     push argument 0
@@ -9,30 +9,27 @@ function Pacman.new 0
     call Point.new 2
     pop this 1
     push constant 8
-    pop this 2
-    push constant 16
     pop this 3
-    push argument 1
+    push constant 16
     pop this 4
+    push argument 1
+    pop this 5
     push pointer 0
     return
-function Pacman.draw 0
+function Enemy.draw 0
     push argument 0
     pop pointer 0
-    push constant 1
-    neg
-    call Screen.setColor 1
-    pop temp 0
-    push this 0
-    call Point.x 1
-    push this 0
-    call Point.y 1
-    push this 2
-    call Screen.drawCircle 3
-    pop temp 0
     push constant 0
     return
-function Pacman.move 2
+function Enemy.getPlayerLocation 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    call Pacman.getCurrentLocation 1
+    pop this 2
+    push constant 0
+    return
+function Enemy.moveToPlayer 2
     push argument 0
     pop pointer 0
     push constant 0
@@ -42,7 +39,7 @@ function Pacman.move 2
     call Point.x 1
     push this 0
     call Point.y 1
-    push this 2
+    push this 3
     call Screen.drawCircle 3
     pop temp 0
     push this 0
@@ -57,14 +54,14 @@ function Pacman.move 2
     call Point.y 1
     add
     pop local 1
-    push this 4
+    push this 5
     push local 0
     push local 1
     call Map.getItemByScreenCoords 3
     push constant 0
     eq
     not
-    if-goto Pacman_1
+    if-goto Enemy_1
     push this 0
     call Point.dispose 1
     pop temp 0
@@ -72,92 +69,95 @@ function Pacman.move 2
     push local 1
     call Point.new 2
     pop this 0
-    goto Pacman_0
-label Pacman_1
-label Pacman_0
+    goto Enemy_0
+label Enemy_1
+label Enemy_0
     push constant 0
     return
-function Pacman.changeMove 0
-    push argument 0
-    pop pointer 0
-    push argument 1
-    push constant 130
-    eq
-    not
-    if-goto Pacman_3
-    push this 1
-    call Point.dispose 1
-    pop temp 0
-    push this 3
-    neg
-    push constant 0
-    call Point.new 2
-    pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
-    goto Pacman_2
-label Pacman_3
-label Pacman_2
-    push argument 1
-    push constant 131
-    eq
-    not
-    if-goto Pacman_5
-    push this 1
-    call Point.dispose 1
-    pop temp 0
-    push constant 0
-    push this 3
-    neg
-    call Point.new 2
-    pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
-    goto Pacman_4
-label Pacman_5
-label Pacman_4
-    push argument 1
-    push constant 132
-    eq
-    not
-    if-goto Pacman_7
-    push this 1
-    call Point.dispose 1
-    pop temp 0
-    push this 3
-    push constant 0
-    call Point.new 2
-    pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
-    goto Pacman_6
-label Pacman_7
-label Pacman_6
-    push argument 1
-    push constant 133
-    eq
-    not
-    if-goto Pacman_9
-    push this 1
-    call Point.dispose 1
-    pop temp 0
-    push constant 0
-    push this 3
-    call Point.new 2
-    pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
-    goto Pacman_8
-label Pacman_9
-label Pacman_8
-    push constant 0
-    return
-function Pacman.getCurrentLocation 0
+function Enemy.changeMove 0
     push argument 0
     pop pointer 0
     push this 0
+    call Point.x 1
+    push this 2
+    call Point.x 1
+    gt
+    not
+    if-goto Enemy_3
+    push this 1
+    call Point.dispose 1
+    pop temp 0
+    push this 4
+    neg
+    push constant 0
+    call Point.new 2
+    pop this 1
+    push pointer 0
+    call Enemy.moveToPlayer 1
+    pop temp 0
+    goto Enemy_2
+label Enemy_3
+label Enemy_2
+    push this 0
+    call Point.y 1
+    push this 2
+    call Point.y 1
+    lt
+    not
+    if-goto Enemy_5
+    push this 1
+    call Point.dispose 1
+    pop temp 0
+    push constant 0
+    push this 4
+    neg
+    call Point.new 2
+    pop this 1
+    push pointer 0
+    call Enemy.moveToPlayer 1
+    pop temp 0
+    goto Enemy_4
+label Enemy_5
+label Enemy_4
+    push this 0
+    call Point.x 1
+    push this 2
+    call Point.x 1
+    lt
+    not
+    if-goto Enemy_7
+    push this 1
+    call Point.dispose 1
+    pop temp 0
+    push this 4
+    push constant 0
+    call Point.new 2
+    pop this 1
+    push pointer 0
+    call Enemy.moveToPlayer 1
+    pop temp 0
+    goto Enemy_6
+label Enemy_7
+label Enemy_6
+    push this 0
+    call Point.y 1
+    push this 2
+    call Point.y 1
+    gt
+    not
+    if-goto Enemy_9
+    push this 1
+    call Point.dispose 1
+    pop temp 0
+    push constant 0
+    push this 4
+    call Point.new 2
+    pop this 1
+    push pointer 0
+    call Enemy.moveToPlayer 1
+    pop temp 0
+    goto Enemy_8
+label Enemy_9
+label Enemy_8
+    push constant 0
     return

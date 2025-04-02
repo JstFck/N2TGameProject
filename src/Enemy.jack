@@ -1,29 +1,29 @@
-class Pacman {
-    field Point location;
-    field Point currentMovementOffset;
+class Enemy {
+    field Point location, currentMovementOffset, playerLocation;
     field int size, step;
     field Map map;
 
-    constructor Pacman new(Point loc, Map newMap) {
+    constructor Enemy new(Point loc, Map newMap) {
         let location = loc;
         let currentMovementOffset = Point.new(0, 0);
         let size = 8;
         let step = 16;
-
         let map = newMap;
-        
+
         return this;
     }
 
     method void draw() {
-        do Screen.setColor(true);
-        do Screen.drawCircle(location.x(), location.y(), size);
+        return;
+    
+
+    method void getPlayerLocation(Pacman pacman) {
+        let playerLocation = pacman.getCurrentLocation();
         return;
     }
 
-    method void move() {
+    method void moveToPlayer() {
         var int newX, newY;
-        // сначала стираем рисунок на старой позиции
         do Screen.setColor(false);
         do Screen.drawCircle(location.x(), location.y(), size);
         
@@ -39,30 +39,26 @@ class Pacman {
     }
 
     method void changeMove(int keyCode) {
-        if (keyCode = 130) {  // влево
+        if (location.x() > playerLocation.x()) {  // влево
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(-step, 0);
-            do move();
+            do moveToPlayer();
         }
-        if (keyCode = 131) {  // вверх
+        if (location.y() < playerLocation.y()) {  // вверх
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(0, -step);
-            do move();
+            do moveToPlayer();
         }
-        if (keyCode = 132) {  // вправо
+        if (location.x() < playerLocation.x()) {  // вправо
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(step, 0);
-            do move();
+            do moveToPlayer();
         }
-        if (keyCode = 133) {  // вниз
+        if (location.y() > playerLocation.y()) {  // вниз
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(0, step);
-            do move();
+            do moveToPlayer();
         }
         return;
-    }
-
-    method Point getCurrentLocation() {
-        return location;
     }
 }

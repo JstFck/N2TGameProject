@@ -148,13 +148,8 @@ class Map {
 
         let mapX = x / 16;
         let mapY = y / 16;
-        let value = map[mapY * size + mapX];
 
-        //do Output.printInt(mapX);
-        //do Output.printInt(mapY);
-        //do Output.printChar(" ");
-        //do Output.printInt(value);
-        //do Output.printChar(" ");
+        let value = map[mapY * size + mapX];
         
         return value;
     }

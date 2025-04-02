@@ -1,16 +1,27 @@
-function Main.main 6
+function Main.main 7
     push constant 16
     call Map.new 1
-    pop local 5
-    push local 5
+    pop local 6
+    push local 6
     call Map.draw 1
     pop temp 0
-    push constant 24
-    push constant 24
+    push constant 23
+    push constant 23
     call Point.new 2
-    push local 5
+    push local 6
     call Pacman.new 2
     pop local 0
+    push constant 16
+    push constant 224
+    call Point.new 2
+    push local 6
+    call Enemy.new 2
+    pop local 1
+    push local 1
+    push constant 1
+    neg
+    call Enemy.draw 2
+    pop temp 0
     push local 0
     call Pacman.draw 1
     pop temp 0
@@ -20,15 +31,43 @@ label Main_0
     not
     if-goto Main_1
     call Keyboard.keyPressed 0
-    pop local 4
+    pop local 5
+    push local 5
+    push constant 130
+    eq
+    push local 5
+    push constant 131
+    eq
+    or
+    push local 5
+    push constant 132
+    eq
+    or
+    push local 5
+    push constant 133
+    eq
+    or
+    not
+    if-goto Main_3
     push local 0
-    push local 4
+    push local 5
     call Pacman.changeMove 2
     pop temp 0
     push local 0
     call Pacman.draw 1
     pop temp 0
-    push constant 50
+    push local 1
+    call Enemy.changeMove 1
+    pop temp 0
+    push local 1
+    push constant 1
+    neg
+    call Enemy.draw 2
+    pop temp 0
+    goto Main_2
+label Main_3
+label Main_2
+    push constant 100
     call Sys.wait 1
     pop temp 0
     goto Main_0

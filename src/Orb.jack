@@ -1,10 +1,11 @@
 class Orb {
     field Point coordPixels, coordOnMap;
+    
     constructor Orb new(Point coord, Map map) {
         return this;
     }
 
     method void draw() {
-    return;
+        return;
     }
 }

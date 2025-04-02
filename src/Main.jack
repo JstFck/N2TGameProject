@@ -1,20 +1,27 @@
 class Main {
     function void main(){
         var Pacman pacman;
+        var Enemy enemy;
         var Point loc1, loc2, loc3;
         var char key;
         var Map map;
         
         let map = Map.new(16);
         do map.draw();
-        let pacman = Pacman.new(Point.new(24, 24), map);
+        let pacman = Pacman.new(Point.new(23, 23), map);
+        let enemy = Enemy.new(Point.new(16, 224), map);
         
+        do enemy.draw(true);
         do pacman.draw();
         while (true) {
             let key = Keyboard.keyPressed();
-            do pacman.changeMove(key);
-            do pacman.draw();
-            do Sys.wait(50);
+            if ((key = 130) | (key = 131) | (key = 132) | (key = 133)) {
+                do pacman.changeMove(key);
+                do pacman.draw();
+                do enemy.changeMove();
+                do enemy.draw(true);
+            }
+            do Sys.wait(100);
         }
 
         return;

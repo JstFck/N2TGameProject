@@ -1,21 +1,59 @@
 class Enemy {
     field Point location, currentMovementOffset, playerLocation;
-    field int size, step;
+    field int step;
     field Map map;
 
     constructor Enemy new(Point loc, Map newMap) {
         let location = loc;
         let currentMovementOffset = Point.new(0, 0);
-        let size = 8;
         let step = 16;
         let map = newMap;
 
         return this;
     }
 
-    method void draw() {
+    method void draw(boolean drawOrNot) {
+        var int i, j;
+        var Array ghost;
+        var String currentString;
+
+        do Screen.setColor(drawOrNot);
+
+        let ghost = Array.new(14);
+        
+        let ghost[0]  = "00111111001111";
+        let ghost[1]  = "01111111111111";
+        let ghost[2]  = "01111111111111";
+        let ghost[3]  = "01111111111111";
+        let ghost[4]  = "01101111110110";
+        let ghost[5]  = "01101111110110";
+        let ghost[6]  = "01111111111111";
+        let ghost[7]  = "01111111111111";
+        let ghost[8]  = "01111111111111";
+        let ghost[9]  = "01111111111111";
+        let ghost[10] = "01110110111011";
+        let ghost[11] = "01101001010011";
+        let ghost[12] = "01110110111011";
+        let ghost[13] = "01111111111111";
+
+        // Рисуем пиксели призрака
+        let i = 0;
+        while (i < 14) {
+            let j = 0;
+            let currentString = ghost[i];
+            while (j < 14) {
+                if (currentString.charAt(j) = 49) {
+                    do Screen.drawPixel(location.x() + 1 + j, location.y() + 1 + i);
+                }
+
+                let j = j + 1;
+            }
+
+            let i = i + 1;
+        }
+
         return;
-    
+    }
 
     method void getPlayerLocation(Pacman pacman) {
         let playerLocation = pacman.getCurrentLocation();
@@ -24,8 +62,8 @@ class Enemy {
 
     method void moveToPlayer() {
         var int newX, newY;
-        do Screen.setColor(false);
-        do Screen.drawCircle(location.x(), location.y(), size);
+
+        do draw(false);
         
         let newX = location.x() + currentMovementOffset.x();
         let newY = location.y() + currentMovementOffset.y();
@@ -38,8 +76,8 @@ class Enemy {
         return;
     }
 
-    method void changeMove(int keyCode) {
-        if (location.x() > playerLocation.x()) {  // влево
+    method void changeMove() {
+        if (location.x() < playerLocation.x()) {  // влево
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(-step, 0);
             do moveToPlayer();
@@ -49,7 +87,7 @@ class Enemy {
             let currentMovementOffset = Point.new(0, -step);
             do moveToPlayer();
         }
-        if (location.x() < playerLocation.x()) {  // вправо
+        if (location.x() > playerLocation.x()) {  // вправо
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(step, 0);
             do moveToPlayer();

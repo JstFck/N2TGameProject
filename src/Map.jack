@@ -26,8 +26,7 @@ class Map {
             }
             
             let i = i + 1;
-        }    
-
+        }
         return this;
     }
 
@@ -69,8 +68,20 @@ class Map {
         if ((x < 0) | (y < 0) | (x > 255) | (y > 255)) {
             return 1;  // cчитаем всё за пределами экрана стеной
         }
-        let mapX = x / tileSize; // тут вылезают рандомные числа откуда-то ya ne ponimayu
-        let mapY = y / tileSize;
+        let mapX = x / 16; // тут вылезают рандомные числа откуда-то ya ne ponimayu
+        let mapY = y / 16;
+
+        do Output.printInt(x);
+        do Output.printString(" ");
+        do Output.printInt(y);
+
+        do Output.println();
+
+        do Output.printInt(mapX);
+        do Output.printString(" ");
+        do Output.printInt(mapY);
+        do Output.println();
+
         let value = getItem(mapX, mapY);
         
         return value;

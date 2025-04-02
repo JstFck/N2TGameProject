@@ -1,5 +1,5 @@
 function Map.new 3
-    push constant 2
+    push constant 3
     call Memory.alloc 1
     pop pointer 0
     push argument 0
@@ -8,7 +8,7 @@ function Map.new 3
     push this 0
     call Math.multiply 2
     call Array.new 1
-    pop this 1
+    pop this 2
     push this 0
     push this 0
     call Math.multiply 2
@@ -17,6 +17,8 @@ function Map.new 3
     push constant 1
     sub
     pop local 1
+    push constant 16
+    pop this 1
     push constant 0
     pop local 0
 label Map_0
@@ -34,10 +36,24 @@ label Map_0
     push local 0
     push this 0
     lt
+    push local 0
+    push local 1
+    gt
+    or
+    push local 2
+    push constant 0
+    eq
+    or
+    push local 2
+    push this 0
+    push constant 1
+    sub
+    eq
+    or
     not
     if-goto Map_3
     push local 0
-    push this 1
+    push this 2
     add
     push constant 1
     pop temp 0
@@ -47,63 +63,13 @@ label Map_0
     goto Map_2
 label Map_3
     push local 0
-    push local 1
-    gt
-    not
-    if-goto Map_5
-    push local 0
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    goto Map_4
-label Map_5
-    push local 2
-    push constant 0
-    eq
-    not
-    if-goto Map_7
-    push local 0
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    goto Map_6
-label Map_7
-    push local 2
-    push this 0
-    push constant 1
-    sub
-    eq
-    not
-    if-goto Map_9
-    push local 0
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    goto Map_8
-label Map_9
-    push local 0
-    push this 1
+    push this 2
     add
     push constant 0
     pop temp 0
     pop pointer 1
     push temp 0
     pop that 0
-label Map_8
-label Map_6
-label Map_4
 label Map_2
     push local 0
     push constant 1
@@ -113,6 +79,84 @@ label Map_2
 label Map_1
     push pointer 0
     return
+function Map.draw 3
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 0
+label Map_4
+    push local 0
+    push this 0
+    push this 0
+    call Math.multiply 2
+    lt
+    not
+    if-goto Map_5
+    push local 0
+    push this 2
+    add
+    pop pointer 1
+    push that 0
+    push constant 0
+    eq
+    not
+    if-goto Map_7
+    push constant 0
+    call Screen.setColor 1
+    pop temp 0
+    goto Map_6
+label Map_7
+    push constant 1
+    neg
+    call Screen.setColor 1
+    pop temp 0
+label Map_6
+    push local 0
+    push this 0
+    call Math.divide 2
+    push this 1
+    call Math.multiply 2
+    pop local 1
+    push local 0
+    push this 0
+    call MathUtils.remainder 2
+    push this 1
+    call Math.multiply 2
+    pop local 2
+    push local 1
+    push constant 256
+    lt
+    push local 2
+    push constant 256
+    lt
+    and
+    not
+    if-goto Map_9
+    push local 1
+    push local 2
+    push local 1
+    push this 1
+    add
+    push constant 1
+    sub
+    push local 2
+    push this 1
+    add
+    push constant 1
+    sub
+    call Screen.drawRectangle 4
+    pop temp 0
+    goto Map_8
+label Map_9
+label Map_8
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Map_4
+label Map_5
+    push constant 0
+    return
 function Map.getItem 0
     push argument 0
     pop pointer 0
@@ -121,10 +165,78 @@ function Map.getItem 0
     call Math.multiply 2
     push argument 1
     add
-    push this 1
+    push this 2
     add
     pop pointer 1
     push that 0
+    return
+function Map.getItemByScreenCoords 3
+    push argument 0
+    pop pointer 0
+    push argument 1
+    push constant 0
+    lt
+    push argument 2
+    push constant 0
+    lt
+    or
+    push argument 1
+    push constant 255
+    gt
+    or
+    push argument 2
+    push constant 255
+    gt
+    or
+    not
+    if-goto Map_11
+    push constant 1
+    return
+    goto Map_10
+label Map_11
+label Map_10
+    push argument 1
+    push constant 16
+    call Math.divide 2
+    pop local 0
+    push argument 2
+    push constant 16
+    call Math.divide 2
+    pop local 1
+    push argument 1
+    call Output.printInt 1
+    pop temp 0
+    push constant 1
+    call String.new 1
+    push constant 32
+    call String.appendChar 2
+    call Output.printString 1
+    pop temp 0
+    push argument 2
+    call Output.printInt 1
+    pop temp 0
+    call Output.println 0
+    pop temp 0
+    push local 0
+    call Output.printInt 1
+    pop temp 0
+    push constant 1
+    call String.new 1
+    push constant 32
+    call String.appendChar 2
+    call Output.printString 1
+    pop temp 0
+    push local 1
+    call Output.printInt 1
+    pop temp 0
+    call Output.println 0
+    pop temp 0
+    push pointer 0
+    push local 0
+    push local 1
+    call Map.getItem 3
+    pop local 2
+    push local 2
     return
 function Map.getSize 0
     push argument 0
@@ -134,7 +246,7 @@ function Map.getSize 0
 function Map.getMap 0
     push argument 0
     pop pointer 0
-    push this 1
+    push this 2
     return
 function Map.dispose 0
     push argument 0

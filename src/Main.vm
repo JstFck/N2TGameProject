@@ -1,26 +1,37 @@
-function Main.main 1
-    push constant 2
-    push constant 0
-    call Fraction.new 2
-    pop local 0
-    push local 0
-    call MathUtils.sqrt 1
-    pop local 0
-    push local 0
-    call Fraction.integer 1
-    call Output.printInt 1
+function Main.main 6
+    push constant 16
+    call Map.new 1
+    pop local 5
+    push local 5
+    call Map.draw 1
     pop temp 0
+    push constant 24
+    push constant 24
+    call Point.new 2
+    push local 5
+    call Pacman.new 2
+    pop local 0
+    push local 0
+    call Pacman.draw 1
+    pop temp 0
+label Main_0
     push constant 1
-    call String.new 1
-    push constant 44
-    call String.appendChar 2
-    call Output.printChar 1
+    neg
+    not
+    if-goto Main_1
+    call Keyboard.keyPressed 0
+    pop local 4
+    push local 0
+    push local 4
+    call Pacman.changeMove 2
     pop temp 0
     push local 0
-    call Fraction.fraction 1
-    call Output.printInt 1
+    call Pacman.draw 1
     pop temp 0
-    call Output.println 0
+    push constant 20
+    call Sys.wait 1
     pop temp 0
+    goto Main_0
+label Main_1
     push constant 0
     return

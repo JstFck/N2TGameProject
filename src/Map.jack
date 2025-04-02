@@ -69,10 +69,6 @@ class Map {
         let mapX = x / 16;
         let mapY = y / 16;
         let value = map[mapY * 16 + mapX];
-
-        do Output.printInt(mapX);
-        do Output.printInt(mapY);
-        do Output.printChar(" ");
         
         return value;
     }

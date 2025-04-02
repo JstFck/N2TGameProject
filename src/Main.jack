@@ -5,18 +5,19 @@ class Main {
         var char key;
         var Map map;
         
-        let map = Map.new(16); // квадрат 12 на 12
+        let map = Map.new(16);
         do map.draw();
 
-        let pacman = Pacman.new(Point.new(24, 24), map); // пока ставлю в верхний левый угол
-
+        let pacman = Pacman.new(Point.new(24, 24), map);
+        
         do pacman.draw();
         while (true) {
             let key = Keyboard.keyPressed();
             do pacman.changeMove(key);
             do pacman.draw();
-            do Sys.wait(20);
+            do Sys.wait(50);
         }
-    return;
+
+        return;
     }
 }

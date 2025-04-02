@@ -8,12 +8,12 @@ function Point.new 0
     pop this 1
     push pointer 0
     return
-function Point.X 0
+function Point.x 0
     push argument 0
     pop pointer 0
     push this 0
     return
-function Point.Y 0
+function Point.y 0
     push argument 0
     pop pointer 0
     push this 1

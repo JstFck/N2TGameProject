@@ -3,7 +3,7 @@ class Map {
     // creation array with length N * N, which contains 1 as wall and 0 as space
     // class have only methods to take (x, y) item, array length and map
 
-    field int size, tileSize;
+    field int size;
     field Array map;
 
     constructor Map new(int initSize) { // код из рейкастинга)
@@ -12,7 +12,6 @@ class Map {
         let size = initSize;
         let map = Array.new(size * size);
         let checkValue = size * size - size - 1;
-        let tileSize = 16;
 
         let i = 0;
         while (i < (size * size)) {
@@ -27,6 +26,9 @@ class Map {
             
             let i = i + 1;
         }
+
+        let map[4 * 16 + 5] = 1;
+
         return this;
     }
 
@@ -43,46 +45,34 @@ class Map {
                 do Screen.setColor(true);
             }
             
-            // Рассчитываем координаты верхнего левого угла прямоугольника
-            let x1 = (i / size) * tileSize;  // x = (i // size) * tile_width
-            let y1 = MathUtils.remainder(i, size) * tileSize;  // y = (i % size) * tile_height
+            let y1 = (i / size) * 16; 
+            let x1 = MathUtils.remainder(i, size) * 16;  
             
-            // Рисуем квадрат 16x16 (проверяем, чтобы не выйти за границы экрана)
             if ((x1 < 256) & (y1 < 256)) {
-                do Screen.drawRectangle(x1, y1, x1 + tileSize - 1, y1 + tileSize - 1);  // x2 = x1+15, y2 = y1+15 (16x16)
+                do Screen.drawRectangle(x1, y1, x1 + 15, y1 + 15);
             }
             
             let i = i + 1;
         }
+
         return;
-    }
-    
-    method int getItem(int x, int y) {
-        return map[y * size + x];
     }
 
     method int getItemByScreenCoords(int x, int y) { // а вот оно работает непонятно как
         var int mapX, mapY;
         var int value;
 
-        if ((x < 0) | (y < 0) | (x > 255) | (y > 255)) {
+        if ((x < 16) | (y < 16) | (x > 247) | (y > 247)) {
             return 1;  // cчитаем всё за пределами экрана стеной
         }
-        let mapX = x / 16; // тут вылезают рандомные числа откуда-то ya ne ponimayu
+
+        let mapX = x / 16;
         let mapY = y / 16;
-
-        do Output.printInt(x);
-        do Output.printString(" ");
-        do Output.printInt(y);
-
-        do Output.println();
+        let value = map[mapY * 16 + mapX];
 
         do Output.printInt(mapX);
-        do Output.printString(" ");
         do Output.printInt(mapY);
-        do Output.println();
-
-        let value = getItem(mapX, mapY);
+        do Output.printChar(" ");
         
         return value;
     }

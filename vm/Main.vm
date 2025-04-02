@@ -28,7 +28,7 @@ label Main_0
     push local 0
     call Pacman.draw 1
     pop temp 0
-    push constant 20
+    push constant 50
     call Sys.wait 1
     pop temp 0
     goto Main_0

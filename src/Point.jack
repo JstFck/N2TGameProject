@@ -1,5 +1,7 @@
 class Point {
+
     // точка на экране, соответственно координаты 0-511, 0-255
+    
     field int xCoord, yCoord;
 
     constructor Point new(int x, int y) {
@@ -8,11 +10,11 @@ class Point {
         return this;
     }
 
-    method int X() {
+    method int x() {
         return xCoord;
     }
 
-    method int Y() {
+    method int y() {
         return yCoord;
     }
 

@@ -8,13 +8,13 @@ class Pacman {
         let location = loc;
         let currentMovementOffset = Point.new(0, 0);
         let size = 8;
-        let step = 8;
+        let step = 16;
         return this;
     }
 
     method void draw() {
         do Screen.setColor(true);
-        do Screen.drawCircle(location.X(), location.Y(), size);
+        do Screen.drawCircle(location.x(), location.y(), size);
         return;
     }
 
@@ -22,19 +22,14 @@ class Pacman {
         var int newX, newY;
         // сначала стираем рисунок на старой позиции
         do Screen.setColor(false);
-        do Screen.drawCircle(location.X(), location.Y(), size);
+        do Screen.drawCircle(location.x(), location.y(), size);
         
-        let newX = location.X() + currentMovementOffset.X();
-        let newY = location.Y() + currentMovementOffset.Y();
-        // проверяем что после сдвига мы не вылетим за пределы (+step чтобы гарантированно) (но думаю это не очень нужно, там же стены по краям)
-        if (~(newX - step < 16) & 
-            ~(newY - step < 16) &
-            (newX + step < 248) & 
-            (newY + step < 24)) {
-            if (map.getItemByScreenCoords(newX, newY) = 0) { //короче эта штука постоянно возвращает нули хотя если стены должно быть 1
-                do location.dispose();  // удаляем старую точку
-                let location = Point.new(newX, newY);   // и меняем местоположение
-                }                                    
+        let newX = location.x() + currentMovementOffset.x();
+        let newY = location.y() + currentMovementOffset.y();
+
+        if (map.getItemByScreenCoords(newX, newY) = 0) {
+            do location.dispose(); 
+            let location = Point.new(newX, newY);
         }
         return;
     }

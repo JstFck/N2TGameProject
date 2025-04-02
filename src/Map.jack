@@ -4,7 +4,7 @@ class Map {
     // class have only methods to take (x, y) item, array length and map
 
     field int size;
-    field Array map;
+    field Array map, cellsWithOrbs;
 
     constructor Map new(int initSize) { // код из рейкастинга)
         var int i, checkValue, remainder;
@@ -19,9 +19,11 @@ class Map {
 
             if ((i < size) | (i > checkValue) | (remainder = 0) | (remainder = (size -  1))) {
                 let map[i] = 1;
+                //let cellsWithOrbs[i] = 0; когда эта строка есть, появляется ошибка Runtime
             }
             else {
                 let map[i] = 0;
+                let cellsWithOrbs[i] = 1;
             }
             
             let i = i + 1;
@@ -118,6 +120,7 @@ class Map {
 
         let i = 0;
         while (i < (size * size)) {
+        
 
             if (map[i] = 0) {
                 do Screen.setColor(false);
@@ -131,6 +134,13 @@ class Map {
             
             if ((x1 < 256) & (y1 < 256)) {
                 do Screen.drawRectangle(x1, y1, x1 + 15, y1 + 15);
+                do Screen.setColor(true);
+                do Screen.drawPixel(x1 + 7, y1 + 7); // рисуем точку ВО ВСЕХ клетках
+
+                if (cellsWithOrbs[i]) {
+                    do Screen.setColor(true);
+                    do Screen.drawPixel(x1 + 8, y1 + 8);
+                }
             }
             
             let i = i + 1;

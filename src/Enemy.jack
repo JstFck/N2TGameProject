@@ -15,6 +15,7 @@ class Enemy {
 
     method void draw() {
         return;
+    }
     
 
     method void getPlayerLocation(Pacman pacman) {

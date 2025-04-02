@@ -7,7 +7,6 @@ class Main {
         
         let map = Map.new(16);
         do map.draw();
-
         let pacman = Pacman.new(Point.new(24, 24), map);
         
         do pacman.draw();

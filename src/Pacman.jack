@@ -4,11 +4,12 @@ class Pacman {
     field int size, step;
     field Map map;
 
-    constructor Pacman new(Point loc, Map map) {
+    constructor Pacman new(Point loc, Map mapNew) {
         let location = loc;
         let currentMovementOffset = Point.new(0, 0);
         let size = 8;
         let step = 16;
+        let map = mapNew;
         return this;
     }
 

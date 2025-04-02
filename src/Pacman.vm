@@ -10,8 +10,10 @@ function Pacman.new 0
     pop this 1
     push constant 8
     pop this 2
-    push constant 8
+    push constant 16
     pop this 3
+    push argument 1
+    pop this 4
     push pointer 0
     return
 function Pacman.draw 0
@@ -22,9 +24,9 @@ function Pacman.draw 0
     call Screen.setColor 1
     pop temp 0
     push this 0
-    call Point.X 1
+    call Point.x 1
     push this 0
-    call Point.Y 1
+    call Point.y 1
     push this 2
     call Screen.drawCircle 3
     pop temp 0
@@ -37,51 +39,24 @@ function Pacman.move 2
     call Screen.setColor 1
     pop temp 0
     push this 0
-    call Point.X 1
+    call Point.x 1
     push this 0
-    call Point.Y 1
+    call Point.y 1
     push this 2
     call Screen.drawCircle 3
     pop temp 0
     push this 0
-    call Point.X 1
+    call Point.x 1
     push this 1
-    call Point.X 1
+    call Point.x 1
     add
     pop local 0
     push this 0
-    call Point.Y 1
+    call Point.y 1
     push this 1
-    call Point.Y 1
+    call Point.y 1
     add
     pop local 1
-    push local 0
-    push this 3
-    sub
-    push constant 16
-    lt
-    not
-    push local 1
-    push this 3
-    sub
-    push constant 16
-    lt
-    not
-    and
-    push local 0
-    push this 3
-    add
-    push constant 248
-    lt
-    and
-    push local 1
-    push this 3
-    add
-    push constant 248
-    lt
-    and
-    not
-    if-goto Pacman_1
     push this 4
     push local 0
     push local 1
@@ -89,7 +64,7 @@ function Pacman.move 2
     push constant 0
     eq
     not
-    if-goto Pacman_3
+    if-goto Pacman_1
     push this 0
     call Point.dispose 1
     pop temp 0
@@ -97,9 +72,6 @@ function Pacman.move 2
     push local 1
     call Point.new 2
     pop this 0
-    goto Pacman_2
-label Pacman_3
-label Pacman_2
     goto Pacman_0
 label Pacman_1
 label Pacman_0
@@ -112,13 +84,32 @@ function Pacman.changeMove 0
     push constant 130
     eq
     not
-    if-goto Pacman_5
+    if-goto Pacman_3
     push this 1
     call Point.dispose 1
     pop temp 0
     push this 3
     neg
     push constant 0
+    call Point.new 2
+    pop this 1
+    push pointer 0
+    call Pacman.move 1
+    pop temp 0
+    goto Pacman_2
+label Pacman_3
+label Pacman_2
+    push argument 1
+    push constant 131
+    eq
+    not
+    if-goto Pacman_5
+    push this 1
+    call Point.dispose 1
+    pop temp 0
+    push constant 0
+    push this 3
+    neg
     call Point.new 2
     pop this 1
     push pointer 0
@@ -128,16 +119,15 @@ function Pacman.changeMove 0
 label Pacman_5
 label Pacman_4
     push argument 1
-    push constant 131
+    push constant 132
     eq
     not
     if-goto Pacman_7
     push this 1
     call Point.dispose 1
     pop temp 0
-    push constant 0
     push this 3
-    neg
+    push constant 0
     call Point.new 2
     pop this 1
     push pointer 0
@@ -147,15 +137,15 @@ label Pacman_4
 label Pacman_7
 label Pacman_6
     push argument 1
-    push constant 132
+    push constant 133
     eq
     not
     if-goto Pacman_9
     push this 1
     call Point.dispose 1
     pop temp 0
-    push this 3
     push constant 0
+    push this 3
     call Point.new 2
     pop this 1
     push pointer 0
@@ -164,23 +154,5 @@ label Pacman_6
     goto Pacman_8
 label Pacman_9
 label Pacman_8
-    push argument 1
-    push constant 133
-    eq
-    not
-    if-goto Pacman_11
-    push this 1
-    call Point.dispose 1
-    pop temp 0
-    push constant 0
-    push this 3
-    call Point.new 2
-    pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
-    goto Pacman_10
-label Pacman_11
-label Pacman_10
     push constant 0
     return

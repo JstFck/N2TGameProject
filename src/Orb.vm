@@ -1,0 +1,11 @@
+function Orb.new 0
+    push constant 2
+    call Memory.alloc 1
+    pop pointer 0
+    push pointer 0
+    return
+function Orb.draw 0
+    push argument 0
+    pop pointer 0
+    push constant 0
+    return

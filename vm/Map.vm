@@ -75,6 +75,18 @@ label Map_2
     pop local 0
     goto Map_0
 label Map_1
+    push constant 4
+    push constant 16
+    call Math.multiply 2
+    push constant 5
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
     push pointer 0
     return
 function Map.draw 3
@@ -143,9 +155,6 @@ label Map_6
     goto Map_8
 label Map_9
 label Map_8
-    push constant 0
-    call Screen.setColor 1
-    pop temp 0
     push local 0
     push constant 1
     add
@@ -197,6 +206,18 @@ label Map_10
     pop pointer 1
     push that 0
     pop local 2
+    push local 0
+    call Output.printInt 1
+    pop temp 0
+    push local 1
+    call Output.printInt 1
+    pop temp 0
+    push constant 1
+    call String.new 1
+    push constant 32
+    call String.appendChar 2
+    call Output.printChar 1
+    pop temp 0
     push local 2
     return
 function Map.getSize 0

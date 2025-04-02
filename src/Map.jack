@@ -27,6 +27,8 @@ class Map {
             let i = i + 1;
         }
 
+        let map[4 * 16 + 5] = 1;
+
         return this;
     }
 
@@ -43,16 +45,12 @@ class Map {
                 do Screen.setColor(true);
             }
             
-            // Рассчитываем координаты верхнего левого угла прямоугольника
-            let y1 = (i / size) * 16;  // x = (i // size) * tile_width
-            let x1 = MathUtils.remainder(i, size) * 16;  // y = (i % size) * tile_height
+            let y1 = (i / size) * 16; 
+            let x1 = MathUtils.remainder(i, size) * 16;  
             
-            // Рисуем квадрат 16x16 (проверяем, чтобы не выйти за границы экрана)
             if ((x1 < 256) & (y1 < 256)) {
-                do Screen.drawRectangle(x1, y1, x1 + 15, y1 + 15);  // x2 = x1+15, y2 = y1+15 (16x16)
+                do Screen.drawRectangle(x1, y1, x1 + 15, y1 + 15);
             }
-
-            do Screen.setColor(false);
             
             let i = i + 1;
         }
@@ -71,6 +69,10 @@ class Map {
         let mapX = x / 16;
         let mapY = y / 16;
         let value = map[mapY * 16 + mapX];
+
+        do Output.printInt(mapX);
+        do Output.printInt(mapY);
+        do Output.printChar(" ");
         
         return value;
     }

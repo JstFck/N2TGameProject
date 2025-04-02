@@ -1,0 +1,38 @@
+function MapCell.new 0
+    push constant 2
+    call Memory.alloc 1
+    pop pointer 0
+    push argument 0
+    pop this 0
+    push this 0
+    push constant 0
+    eq
+    not
+    if-goto MapCell_1
+    push constant 1
+    neg
+    pop this 1
+    goto MapCell_0
+label MapCell_1
+    push constant 0
+    pop this 1
+label MapCell_0
+    push pointer 0
+    return
+function MapCell.checkIfWall 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+function MapCell.checkIfHasOrb 0
+    push argument 0
+    pop pointer 0
+    push this 1
+    return
+function MapCell.removeOrb 0
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop this 1
+    push constant 0
+    return

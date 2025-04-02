@@ -54,7 +54,7 @@ class Enemy {
 
         return;
     }
-
+    
     method void getPlayerLocation(Pacman pacman) {
         let playerLocation = pacman.getCurrentLocation();
         return;

@@ -1,5 +1,5 @@
 function Map.new 3
-    push constant 3
+    push constant 2
     call Memory.alloc 1
     pop pointer 0
     push argument 0
@@ -64,14 +64,6 @@ label Map_3
     push this 1
     add
     push constant 0
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push local 0
-    push this 2
-    add
-    push constant 1
     pop temp 0
     pop pointer 1
     push temp 0
@@ -845,24 +837,6 @@ label Map_6
     add
     call Screen.drawPixel 2
     pop temp 0
-    push local 0
-    push this 2
-    add
-    pop pointer 1
-    push that 0
-    not
-    if-goto Map_11
-    push local 1
-    push constant 8
-    add
-    push local 2
-    push constant 8
-    add
-    call Screen.drawPixel 2
-    pop temp 0
-    goto Map_10
-label Map_11
-label Map_10
     goto Map_8
 label Map_9
 label Map_8

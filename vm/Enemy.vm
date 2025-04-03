@@ -1,5 +1,5 @@
 function Enemy.new 0
-    push constant 6
+    push constant 7
     call Memory.alloc 1
     pop pointer 0
     push argument 0
@@ -10,9 +10,11 @@ function Enemy.new 0
     pop this 1
     push constant 16
     pop this 4
-    push argument 1
-    pop this 5
     push constant 14
+    pop this 5
+    push argument 1
+    pop this 6
+    push this 5
     call Array.new 1
     pop this 3
     push constant 0
@@ -545,7 +547,7 @@ function Enemy.draw 3
     pop local 0
 label Enemy_0
     push local 0
-    push constant 14
+    push this 5
     lt
     not
     if-goto Enemy_1
@@ -559,14 +561,14 @@ label Enemy_0
     pop local 2
 label Enemy_2
     push local 1
-    push constant 14
+    push this 5
     lt
     not
     if-goto Enemy_3
     push local 2
     push local 1
     call String.charAt 2
-    push constant 49
+    call Ascii.one 0
     eq
     not
     if-goto Enemy_5
@@ -666,7 +668,7 @@ function Enemy.moveToPlayer 2
     call Point.y 1
     add
     pop local 1
-    push this 5
+    push this 6
     push local 0
     push local 1
     call Map.getItemByScreenCoords 3
@@ -689,6 +691,9 @@ label Enemy_8
 function Enemy.setDirection 0
     push argument 0
     pop pointer 0
+    push this 1
+    call Point.dispose 1
+    pop temp 0
     push this 0
     call Point.x 1
     push this 2
@@ -696,17 +701,11 @@ function Enemy.setDirection 0
     gt
     not
     if-goto Enemy_11
-    push this 1
-    call Point.dispose 1
-    pop temp 0
     push this 4
     neg
     push constant 0
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Enemy.moveToPlayer 1
-    pop temp 0
     goto Enemy_10
 label Enemy_11
 label Enemy_10
@@ -717,17 +716,11 @@ label Enemy_10
     gt
     not
     if-goto Enemy_13
-    push this 1
-    call Point.dispose 1
-    pop temp 0
     push constant 0
     push this 4
     neg
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Enemy.moveToPlayer 1
-    pop temp 0
     goto Enemy_12
 label Enemy_13
 label Enemy_12
@@ -738,16 +731,10 @@ label Enemy_12
     lt
     not
     if-goto Enemy_15
-    push this 1
-    call Point.dispose 1
-    pop temp 0
     push this 4
     push constant 0
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Enemy.moveToPlayer 1
-    pop temp 0
     goto Enemy_14
 label Enemy_15
 label Enemy_14
@@ -758,18 +745,15 @@ label Enemy_14
     lt
     not
     if-goto Enemy_17
-    push this 1
-    call Point.dispose 1
-    pop temp 0
     push constant 0
     push this 4
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Enemy.moveToPlayer 1
-    pop temp 0
     goto Enemy_16
 label Enemy_17
 label Enemy_16
+    push pointer 0
+    call Enemy.moveToPlayer 1
+    pop temp 0
     push constant 0
     return

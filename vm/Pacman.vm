@@ -80,80 +80,62 @@ label Pacman_0
 function Pacman.setDirection 0
     push argument 0
     pop pointer 0
-    push argument 1
-    call Keys.keyLeft 0
-    eq
-    not
-    if-goto Pacman_3
     push this 1
     call Point.dispose 1
     pop temp 0
+    push argument 1
+    call Ascii.keyLeft 0
+    eq
+    not
+    if-goto Pacman_3
     push this 3
     neg
     push constant 0
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
     goto Pacman_2
 label Pacman_3
 label Pacman_2
     push argument 1
-    call Keys.keyUp 0
+    call Ascii.keyUp 0
     eq
     not
     if-goto Pacman_5
-    push this 1
-    call Point.dispose 1
-    pop temp 0
     push constant 0
     push this 3
     neg
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
     goto Pacman_4
 label Pacman_5
 label Pacman_4
     push argument 1
-    call Keys.keyRight 0
+    call Ascii.keyRight 0
     eq
     not
     if-goto Pacman_7
-    push this 1
-    call Point.dispose 1
-    pop temp 0
     push this 3
     push constant 0
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
     goto Pacman_6
 label Pacman_7
 label Pacman_6
     push argument 1
-    call Keys.keyDown 0
+    call Ascii.keyDown 0
     eq
     not
     if-goto Pacman_9
-    push this 1
-    call Point.dispose 1
-    pop temp 0
     push constant 0
     push this 3
     call Point.new 2
     pop this 1
-    push pointer 0
-    call Pacman.move 1
-    pop temp 0
     goto Pacman_8
 label Pacman_9
 label Pacman_8
+    push pointer 0
+    call Pacman.move 1
+    pop temp 0
     push constant 0
     return
 function Pacman.getCurrentLocation 0

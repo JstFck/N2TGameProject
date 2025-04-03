@@ -83,751 +83,756 @@ label Map_2
     pop local 0
     goto Map_0
 label Map_1
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 2
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 3
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 4
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 6
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 7
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 8
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 9
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 10
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 11
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 14
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 2
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 3
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 4
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 6
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 7
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 8
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 9
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push constant 16
-    call Math.multiply 2
-    push constant 14
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 4
-    push constant 16
-    call Math.multiply 2
-    push constant 11
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 4
-    push constant 16
-    call Math.multiply 2
-    push constant 12
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 5
-    push constant 16
-    call Math.multiply 2
-    push constant 7
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 5
-    push constant 16
-    call Math.multiply 2
-    push constant 8
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 5
-    push constant 16
-    call Math.multiply 2
-    push constant 9
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 1
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 2
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 3
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 4
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 7
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 10
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 12
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 13
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push constant 16
-    call Math.multiply 2
-    push constant 14
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 1
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 2
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 3
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 4
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 6
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 7
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 8
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 9
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 11
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 12
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 13
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 14
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 9
-    push constant 16
-    call Math.multiply 2
-    push constant 6
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 9
-    push constant 16
-    call Math.multiply 2
-    push constant 9
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 10
-    push constant 16
-    call Math.multiply 2
-    push constant 9
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 11
-    push constant 16
-    call Math.multiply 2
-    push constant 5
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 11
-    push constant 16
-    call Math.multiply 2
-    push constant 7
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 11
-    push constant 16
-    call Math.multiply 2
-    push constant 12
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 11
-    push constant 16
-    call Math.multiply 2
-    push constant 13
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 12
-    push constant 16
-    call Math.multiply 2
-    push constant 5
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 12
-    push constant 16
-    call Math.multiply 2
-    push constant 10
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 12
-    push constant 16
-    call Math.multiply 2
-    push constant 13
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 2
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 3
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 4
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 5
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 6
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 7
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 10
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push constant 16
-    call Math.multiply 2
-    push constant 13
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
     push pointer 0
+    return
+function Map.setMap 0
+    push argument 0
+    pop pointer 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 2
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 3
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 4
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 6
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 7
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 8
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 9
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 10
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 11
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push constant 16
+    call Math.multiply 2
+    push constant 14
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 2
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 3
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 4
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 6
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 7
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 8
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 9
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push constant 16
+    call Math.multiply 2
+    push constant 14
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 4
+    push constant 16
+    call Math.multiply 2
+    push constant 11
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 4
+    push constant 16
+    call Math.multiply 2
+    push constant 12
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 5
+    push constant 16
+    call Math.multiply 2
+    push constant 7
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 5
+    push constant 16
+    call Math.multiply 2
+    push constant 8
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 5
+    push constant 16
+    call Math.multiply 2
+    push constant 9
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 1
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 2
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 3
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 4
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 7
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 10
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 12
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 13
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push constant 16
+    call Math.multiply 2
+    push constant 14
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 1
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 2
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 3
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 4
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 6
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 7
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 8
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 9
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 11
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 12
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 13
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push constant 16
+    call Math.multiply 2
+    push constant 14
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 9
+    push constant 16
+    call Math.multiply 2
+    push constant 6
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 9
+    push constant 16
+    call Math.multiply 2
+    push constant 9
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 10
+    push constant 16
+    call Math.multiply 2
+    push constant 9
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 11
+    push constant 16
+    call Math.multiply 2
+    push constant 5
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 11
+    push constant 16
+    call Math.multiply 2
+    push constant 7
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 11
+    push constant 16
+    call Math.multiply 2
+    push constant 12
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 11
+    push constant 16
+    call Math.multiply 2
+    push constant 13
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 12
+    push constant 16
+    call Math.multiply 2
+    push constant 5
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 12
+    push constant 16
+    call Math.multiply 2
+    push constant 10
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 12
+    push constant 16
+    call Math.multiply 2
+    push constant 13
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 2
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 3
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 4
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 5
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 6
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 7
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 10
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push constant 16
+    call Math.multiply 2
+    push constant 13
+    add
+    push this 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 0
     return
 function Map.draw 3
     push argument 0
@@ -856,10 +861,6 @@ label Map_4
     pop temp 0
     goto Map_6
 label Map_7
-    push constant 1
-    neg
-    call Screen.setColor 1
-    pop temp 0
 label Map_6
     push local 0
     push this 0
@@ -911,10 +912,6 @@ label Map_6
     push that 0
     not
     if-goto Map_11
-    push constant 1
-    neg
-    call Screen.setColor 1
-    pop temp 0
     push local 1
     push constant 8
     add
@@ -937,50 +934,22 @@ label Map_8
 label Map_5
     push constant 0
     return
-function Map.getItemByScreenCoords 3
+function Map.getItemByScreenCoords 0
     push argument 0
     pop pointer 0
-    push argument 1
-    push constant 16
-    lt
-    push argument 2
-    push constant 16
-    lt
-    or
-    push argument 1
-    push constant 247
-    gt
-    or
-    push argument 2
-    push constant 247
-    gt
-    or
-    not
-    if-goto Map_13
-    push constant 1
-    return
-    goto Map_12
-label Map_13
-label Map_12
-    push argument 1
-    push constant 16
-    call Math.divide 2
-    pop local 0
     push argument 2
     push constant 16
     call Math.divide 2
-    pop local 1
-    push local 1
     push this 0
     call Math.multiply 2
-    push local 0
+    push argument 1
+    push constant 16
+    call Math.divide 2
     add
     push this 1
     add
     pop pointer 1
     push that 0
-    pop local 2
-    push local 2
     return
 function Map.getSize 0
     push argument 0

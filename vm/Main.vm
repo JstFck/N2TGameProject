@@ -3,6 +3,9 @@ function Main.main 7
     call Map.new 1
     pop local 6
     push local 6
+    call Map.setMap 1
+    pop temp 0
+    push local 6
     call Map.draw 1
     pop temp 0
     push constant 23
@@ -64,6 +67,19 @@ label Main_0
     neg
     call Enemy.draw 2
     pop temp 0
+    push local 1
+    push local 0
+    call Enemy.getPlayerLocation 2
+    pop temp 0
+    push local 1
+    call Enemy.isPlayerCatch 1
+    not
+    if-goto Main_5
+    call Sys.halt 0
+    pop temp 0
+    goto Main_4
+label Main_5
+label Main_4
     goto Main_2
 label Main_3
 label Main_2

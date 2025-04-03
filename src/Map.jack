@@ -29,6 +29,10 @@ class Map {
             let i = i + 1;
         }
 
+        return this;
+    }
+
+    method void setMap() {
         let map[2 * 16 + 2] = 1;
         let map[2 * 16 + 3] = 1;
         let map[2 * 16 + 4] = 1;
@@ -112,7 +116,7 @@ class Map {
         let map[13 * 16 + 10] = 1;
         let map[13 * 16 + 13] = 1;
 
-        return this;
+        return;
     }
 
     method void draw() { // отрисовка карты работает нормально
@@ -120,13 +124,8 @@ class Map {
 
         let i = 0;
         while (i < (size * size)) {
-        
-
             if (map[i] = 0) {
                 do Screen.setColor(false);
-            }
-            else {
-                do Screen.setColor(true);
             }
             
             let y1 = (i / size) * 16; 
@@ -138,30 +137,18 @@ class Map {
                 do Screen.drawPixel(x1 + 7, y1 + 7); // рисуем точку ВО ВСЕХ клетках
 
                 if (cellsWithOrbs[i]) {
-                    do Screen.setColor(true);
                     do Screen.drawPixel(x1 + 8, y1 + 8);
                 }
             }
             
             let i = i + 1;
         }
+
         return;
     }
 
-    method int getItemByScreenCoords(int x, int y) { // а вот оно работает непонятно как
-        var int mapX, mapY;
-        var int value;
-
-        if ((x < 16) | (y < 16) | (x > 247) | (y > 247)) {
-            return 1;  // cчитаем всё за пределами экрана стеной
-        }
-
-        let mapX = x / 16;
-        let mapY = y / 16;
-
-        let value = map[mapY * size + mapX];
-        
-        return value;
+    method int getItemByScreenCoords(int x, int y) { 
+        return map[(y / 16) * size + (x / 16)];
     }
 
     method int getSize() {

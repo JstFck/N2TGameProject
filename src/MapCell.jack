@@ -1,7 +1,6 @@
 class MapCell {
-
     field boolean isWall, hasOrb;
-    
+
     constructor MapCell new(boolean newIsWall) {
         let isWall = newIsWall;
         if (isWall = false) {

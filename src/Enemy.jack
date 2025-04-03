@@ -74,17 +74,20 @@ class Enemy {
         do currentMovementOffset.dispose();
         if (location.x() > playerLocation.x()) {
             let currentMovementOffset = Point.new(-step, 0);
+            do moveToPlayer();
         }
         if (location.y() > playerLocation.y()) {
             let currentMovementOffset = Point.new(0, -step);
+            do moveToPlayer();
         }
         if (location.x() < playerLocation.x()) {
             let currentMovementOffset = Point.new(step, 0);
+            do moveToPlayer();
         }
         if (location.y() < playerLocation.y()) {
             let currentMovementOffset = Point.new(0, step);
+            do moveToPlayer();
         }
-        do moveToPlayer();
         return;
     }
 }

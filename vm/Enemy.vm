@@ -620,13 +620,21 @@ function Enemy.isPlayerCatch 0
     pop pointer 0
     push this 0
     call Point.x 1
+    push constant 16
+    call Math.divide 2
     push this 2
     call Point.x 1
+    push constant 16
+    call Math.divide 2
     eq
     push this 0
     call Point.y 1
+    push constant 16
+    call Math.divide 2
     push this 2
     call Point.y 1
+    push constant 16
+    call Math.divide 2
     eq
     and
     not

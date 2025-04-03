@@ -1,3 +1,12 @@
-# N2TGameProject
+# Nand 2 Tetris Project
 
-little project for university from course Nand 2 Tetris 
+В данном проекте реализована игра Pacman на языке программирования Jack из курса [Nand 2 Tetris](https://www.nand2tetris.org/)
+
+в репозитории находиться 2 папки:
+- src, где находится исходный код проекта
+- vm, код вирутальной машины, именно в него компилируется код из папки `src`
+
+## Запуск проекта
+для запуска проекта необходимо:
+- склонировать репозиторий к себе на компьютер, сделать это можно так: `git clone https://github.com/jstnoname/N2TGameProject.git`
+- далее можно или использовать [онлайн интерпритатор vm](https://nand2tetris.github.io/web-ide/vm), где необходимо выбрать папку с vm кодом, либо же использовать сторонее ПО для запуска проекта

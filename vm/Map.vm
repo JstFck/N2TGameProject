@@ -91,30 +91,6 @@ function Map.setMap 0
     push constant 2
     push constant 16
     call Math.multiply 2
-    push constant 2
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
-    push constant 3
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push constant 16
-    call Math.multiply 2
     push constant 4
     add
     push this 1
@@ -475,30 +451,6 @@ function Map.setMap 0
     push constant 8
     push constant 16
     call Math.multiply 2
-    push constant 1
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 2
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
     push constant 3
     add
     push this 1
@@ -596,18 +548,6 @@ function Map.setMap 0
     push constant 16
     call Math.multiply 2
     push constant 13
-    add
-    push this 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push constant 16
-    call Math.multiply 2
-    push constant 14
     add
     push this 1
     add

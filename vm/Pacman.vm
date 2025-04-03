@@ -81,7 +81,7 @@ function Pacman.setDirection 0
     push argument 0
     pop pointer 0
     push argument 1
-    push constant 130
+    call Keys.keyLeft 0
     eq
     not
     if-goto Pacman_3
@@ -100,7 +100,7 @@ function Pacman.setDirection 0
 label Pacman_3
 label Pacman_2
     push argument 1
-    push constant 131
+    call Keys.keyUp 0
     eq
     not
     if-goto Pacman_5
@@ -119,7 +119,7 @@ label Pacman_2
 label Pacman_5
 label Pacman_4
     push argument 1
-    push constant 132
+    call Keys.keyRight 0
     eq
     not
     if-goto Pacman_7
@@ -137,7 +137,7 @@ label Pacman_4
 label Pacman_7
 label Pacman_6
     push argument 1
-    push constant 133
+    call Keys.keyDown 0
     eq
     not
     if-goto Pacman_9

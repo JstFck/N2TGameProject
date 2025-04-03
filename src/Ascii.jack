@@ -1,4 +1,8 @@
-class Keys {
+class Ascii {
+    function int one() {
+        return 49;
+    }
+
     function int keyLeft() {
         return 130;
     }

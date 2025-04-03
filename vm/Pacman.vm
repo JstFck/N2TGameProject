@@ -77,7 +77,7 @@ label Pacman_1
 label Pacman_0
     push constant 0
     return
-function Pacman.changeMove 0
+function Pacman.setDirection 0
     push argument 0
     pop pointer 0
     push argument 1

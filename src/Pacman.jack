@@ -37,27 +37,21 @@ class Pacman {
         return;
     }
 
-    method void changeMove(int keyCode) {
-        if (keyCode = Keys.keyLeft()) {  // влево
-            do currentMovementOffset.dispose();
+    method void setDirection(int keyCode) {
+        do currentMovementOffset.dispose();
+        if (keyCode = Ascii.keyLeft()) {
             let currentMovementOffset = Point.new(-step, 0);
-            do move();
         }
-        if (keyCode = Keys.keyUp()) {  // вверх
-            do currentMovementOffset.dispose();
+        if (keyCode = Ascii.keyUp()) {
             let currentMovementOffset = Point.new(0, -step);
-            do move();
         }
-        if (keyCode = Keys.keyRight()) {  // вправо
-            do currentMovementOffset.dispose();
+        if (keyCode = Ascii.keyRight()) {
             let currentMovementOffset = Point.new(step, 0);
-            do move();
         }
-        if (keyCode = Keys.keyDown()) {  // вниз
-            do currentMovementOffset.dispose();
+        if (keyCode = Ascii.keyDown()) {
             let currentMovementOffset = Point.new(0, step);
-            do move();
         }
+        do move();
         return;
     }
 

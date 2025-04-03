@@ -19,10 +19,10 @@ class Main {
         while (true) {
             let key = Keyboard.keyPressed();
             if (isMovementKey(key)) {
-                do pacman.changeMove(key);
+                do pacman.setDirection(key);
                 do pacman.draw();
 
-                do enemy.changeMove();
+                do enemy.setDirection();
                 do enemy.draw(true);
 
                 do enemy.getPlayerLocation(pacman);
@@ -39,10 +39,10 @@ class Main {
 
     method boolean isMovementKey(int key) {
         return (
-            (key = Keys.keyLeft()) |
-            (key = Keys.keyUp()) |
-            (key = Keys.keyRight()) | 
-            (key = Keys.keyDown())
+            (key = Ascii.keyLeft()) |
+            (key = Ascii.keyUp()) |
+            (key = Ascii.keyRight()) | 
+            (key = Ascii.keyDown())
         );
     }
 
@@ -55,7 +55,6 @@ class Main {
     method void drawLoseMessage() {
         var Array gg;
         var int x, y;
-        var int oneAscii;
         var String currentString;
 
         let gg = Array.new(16);
@@ -77,14 +76,12 @@ class Main {
         let gg[14] = "00000000000000000000000000000000";
         let gg[15] = "00000000000000000000000000000000";
 
-        let oneAscii = 49;
-
         let y = 0;
         while (y < 16) {
             let x = 0;
             let currentString = gg[y];
             while (x < 32) {
-                if (currentString.charAt(x) = oneAscii) {
+                if (currentString.charAt(x) = Ascii.one()) {
                     do Screen.drawRectangle(x * 16, y * 16, 16 * x + 15, 16 * y + 15);
                 }
 

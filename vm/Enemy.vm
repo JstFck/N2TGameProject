@@ -678,7 +678,7 @@ label Enemy_9
 label Enemy_8
     push constant 0
     return
-function Enemy.changeMove 0
+function Enemy.setDirection 0
     push argument 0
     pop pointer 0
     push this 0

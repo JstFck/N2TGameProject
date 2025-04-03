@@ -19,7 +19,6 @@ class Map {
 
             if ((i < size) | (i > checkValue) | (remainder = 0) | (remainder = (size -  1))) {
                 let map[i] = 1;
-                //let cellsWithOrbs[i] = 0; когда эта строка есть, появляется ошибка Runtime
             }
             else {
                 let map[i] = 0;
@@ -114,7 +113,7 @@ class Map {
         return;
     }
 
-    method void draw() { // отрисовка карты работает нормально
+    method void draw() {
         var int i, x1, y1;
 
         let i = 0;

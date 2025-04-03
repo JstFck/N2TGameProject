@@ -1,16 +1,17 @@
 class Enemy {
     field Point location, currentMovementOffset, playerLocation;
     field Array ghost;
-    field int step;
+    field int step, ghostModelSize;
     field Map map;
 
     constructor Enemy new(Point loc, Map newMap) {
         let location = loc;
         let currentMovementOffset = Point.new(0, 0);
         let step = 16;
+        let ghostModelSize = 14;
         let map = newMap;
 
-        let ghost = Array.new(14);
+        let ghost = Array.new(ghostModelSize);
         let ghost[0]  = "00111111001111";
         let ghost[1]  = "01111111111111";
         let ghost[2]  = "01111111111111";
@@ -36,17 +37,15 @@ class Enemy {
         do Screen.setColor(drawOrNot);
 
         let i = 0;
-        while (i < 14) {
+        while (i < ghostModelSize) {
             let j = 0;
             let currentString = ghost[i];
-            while (j < 14) {
-                if (currentString.charAt(j) = 49) {
+            while (j < ghostModelSize) {
+                if (currentString.charAt(j) = Ascii.one()) {
                     do Screen.drawPixel(location.x() + 1 + j, location.y() + 1 + i);
                 }
-
                 let j = j + 1;
             }
-
             let i = i + 1;
         }
 
@@ -87,27 +86,21 @@ class Enemy {
         return;
     }
 
-    method void changeMove() {
-        if (location.x() > playerLocation.x()) {  // влево
-            do currentMovementOffset.dispose();
+    method void setDirection() {
+        do currentMovementOffset.dispose();
+        if (location.x() > playerLocation.x()) {
             let currentMovementOffset = Point.new(-step, 0);
-            do moveToPlayer();
         }
-        if (location.y() > playerLocation.y()) {  // вверх
-            do currentMovementOffset.dispose();
+        if (location.y() > playerLocation.y()) {
             let currentMovementOffset = Point.new(0, -step);
-            do moveToPlayer();
         }
-        if (location.x() < playerLocation.x()) {  // вправо
-            do currentMovementOffset.dispose();
+        if (location.x() < playerLocation.x()) {
             let currentMovementOffset = Point.new(step, 0);
-            do moveToPlayer();
         }
-        if (location.y() < playerLocation.y()) {  // вниз
-            do currentMovementOffset.dispose();
+        if (location.y() < playerLocation.y()) {
             let currentMovementOffset = Point.new(0, step);
-            do moveToPlayer();
         }
+        do moveToPlayer();
         return;
     }
 }

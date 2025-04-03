@@ -54,13 +54,13 @@ label Main_0
     if-goto Main_3
     push local 0
     push local 5
-    call Pacman.changeMove 2
+    call Pacman.setDirection 2
     pop temp 0
     push local 0
     call Pacman.draw 1
     pop temp 0
     push local 1
-    call Enemy.changeMove 1
+    call Enemy.setDirection 1
     pop temp 0
     push local 1
     push constant 1

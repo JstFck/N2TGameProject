@@ -38,22 +38,22 @@ class Pacman {
     }
 
     method void changeMove(int keyCode) {
-        if (keyCode = 130) {  // влево
+        if (keyCode = Keys.keyLeft()) {  // влево
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(-step, 0);
             do move();
         }
-        if (keyCode = 131) {  // вверх
+        if (keyCode = Keys.keyUp()) {  // вверх
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(0, -step);
             do move();
         }
-        if (keyCode = 132) {  // вправо
+        if (keyCode = Keys.keyRight()) {  // вправо
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(step, 0);
             do move();
         }
-        if (keyCode = 133) {  // вниз
+        if (keyCode = Keys.keyDown()) {  // вниз
             do currentMovementOffset.dispose();
             let currentMovementOffset = Point.new(0, step);
             do move();

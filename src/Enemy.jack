@@ -24,7 +24,7 @@ class Enemy {
         let ghost[10] = "01110110111011";
         let ghost[11] = "01101001010011";
         let ghost[12] = "01110110111011";
-        let ghost[13] = "01111111111111"; 
+        let ghost[13] = "01111111111111";
 
         return this;
     }
@@ -62,7 +62,10 @@ class Enemy {
     }
 
     method boolean isPlayerCatch() {
-        if ((location.x() = playerLocation.x()) & (location.y() = playerLocation.y())) {
+        if (
+            ((location.x() / 16) = (playerLocation.x() / 16)) &
+            ((location.y() / 16) = (playerLocation.y() / 16))
+        ) {
             return true;
         }
         return false;

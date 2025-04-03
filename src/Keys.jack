@@ -1,0 +1,17 @@
+class Keys {
+    function int keyLeft() {
+        return 130;
+    }
+
+    function int keyUp() {
+        return 131;
+    }
+
+    function int keyRight() {
+        return 132;
+    }
+
+    function int keyDown() {
+        return 133;
+    }
+}

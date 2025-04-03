@@ -1,10 +1,12 @@
 class Main {
-    function void main(){
+    function void main() {
         var Pacman pacman;
         var Enemy enemy;
-        var Point loc1, loc2, loc3;
         var char key;
         var Map map;
+    
+        var int clickDelay;
+        let clickDelay = 100;  // ms
         
         let map = Map.new(16);
         do map.setMap();
@@ -16,17 +18,80 @@ class Main {
         do pacman.draw();
         while (true) {
             let key = Keyboard.keyPressed();
-            if ((key = 130) | (key = 131) | (key = 132) | (key = 133)) {
+            if (isMovementKey(key)) {
                 do pacman.changeMove(key);
                 do pacman.draw();
+
                 do enemy.changeMove();
                 do enemy.draw(true);
+
                 do enemy.getPlayerLocation(pacman);
                 if (enemy.isPlayerCatch()) {
-                    do Sys.halt();
+                    do stopGame();
+                    do Sys.halt();  // break, но это неправда
                 }
             }
-            do Sys.wait(100);
+            do Sys.wait(clickDelay);
+        }
+
+        return;
+    }
+
+    method boolean isMovementKey(int key) {
+        return (
+            (key = Keys.keyLeft()) |
+            (key = Keys.keyUp()) |
+            (key = Keys.keyRight()) | 
+            (key = Keys.keyDown())
+        );
+    }
+
+    method void stopGame() {
+        do Screen.clearScreen();
+        do drawLoseMessage();
+        return;
+    }
+
+    method void drawLoseMessage() {
+        var Array gg;
+        var int x, y;
+        var int oneAscii;
+        var String currentString;
+
+        let gg = Array.new(16);
+
+        let gg[0]  = "00000000000000000000000000000000";
+        let gg[1]  = "00000111111000000000011111100000";
+        let gg[2]  = "00001100001100000000110000110000";
+        let gg[3]  = "00011000000110000001100000011000";
+        let gg[4]  = "00110000000000000011000000000000";
+        let gg[5]  = "00110000000000000011000000000000";
+        let gg[6]  = "00110000000000000011000000000000";
+        let gg[7]  = "00110000111110000011000011110000";
+        let gg[8]  = "00110000111110000011000011110000";
+        let gg[9]  = "00110000000110000011000000011000";
+        let gg[10] = "00110000000110000011000000011000";
+        let gg[11] = "00011000000110000001100000011000";
+        let gg[12] = "00001100001100000000110000110000";
+        let gg[13] = "00000111111000000000011111100000";
+        let gg[14] = "00000000000000000000000000000000";
+        let gg[15] = "00000000000000000000000000000000";
+
+        let oneAscii = 49;
+
+        let y = 0;
+        while (y < 16) {
+            let x = 0;
+            let currentString = gg[y];
+            while (x < 32) {
+                if (currentString.charAt(x) = oneAscii) {
+                    do Screen.drawRectangle(x * 16, y * 16, 16 * x + 15, 16 * y + 15);
+                }
+
+                let x = x + 1;
+            }
+
+            let y = y + 1;
         }
 
         return;

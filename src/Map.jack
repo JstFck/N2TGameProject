@@ -33,8 +33,6 @@ class Map {
     }
 
     method void setMap() {
-        let map[2 * 16 + 2] = 1;
-        let map[2 * 16 + 3] = 1;
         let map[2 * 16 + 4] = 1;
 
         let map[2 * 16 + 6] = 1;
@@ -76,8 +74,6 @@ class Map {
         let map[6 * 16 + 13] = 1;
         let map[6 * 16 + 14] = 1;
 
-        let map[8 * 16 + 1] = 1;
-        let map[8 * 16 + 2] = 1;
         let map[8 * 16 + 3] = 1;
         let map[8 * 16 + 4] = 1;
 
@@ -89,7 +85,6 @@ class Map {
         let map[8 * 16 + 11] = 1;
         let map[8 * 16 + 12] = 1;
         let map[8 * 16 + 13] = 1;
-        let map[8 * 16 + 14] = 1;
 
         let map[9 * 16 + 6] = 1;
 
